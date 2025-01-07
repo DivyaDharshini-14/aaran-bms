@@ -26,4 +26,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 //    Route::get('productFactory', App\Livewire\Demo\Data\Product\Index::class)->name('productFactory');
 
 
+
+
 });
