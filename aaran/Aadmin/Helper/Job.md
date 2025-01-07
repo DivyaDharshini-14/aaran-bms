@@ -1,3 +1,5 @@
 ## 1- Refactor -Divya
-- database
-- migrate
+
+#city 
+- migration table completed
+- mod
