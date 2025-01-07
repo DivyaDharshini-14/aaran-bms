@@ -2,14 +2,12 @@
 
 namespace Aaran\Blog\Database\Factory;
 
+use Aaran\Blog\Models\BlogTag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Aaran\Blog\Models\BlogTag>
- */
 class BlogTagFactory extends Factory
 {
-
+    protected $model = BlogTag::class;
     public function definition(): array
     {
         return [
