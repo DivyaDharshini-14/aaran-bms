@@ -5,7 +5,7 @@ namespace Aaran\Common\Database\Seeders;
 use Aaran\Common\Models\Receipttype;
 use Illuminate\Database\Seeder;
 
-class S111_ReceipttypeSeeder extends Seeder
+class S113_ReceipttypeSeeder extends Seeder
 {
     public static function run(): void
     {
