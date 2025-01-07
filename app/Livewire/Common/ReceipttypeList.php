@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Common;
 
-use Aaran\Common\Models\Receipttype;
+use Aaran\Common\Models\ReceiptType;
 use App\Livewire\Trait\CommonTrait;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -17,14 +17,14 @@ class ReceipttypeList extends Component
         if ($this->vname != '') {
             if ($this->vid == "") {
                 $this->validate(['vname' => 'required|unique:receipttypes,vname']);
-                Receipttype::create([
+                ReceiptType::create([
                     'vname' => Str::ucfirst($this->vname),
                     'active_id' => $this->active_id,
                 ]);
                 $message = "Saved";
 
             } else {
-                $obj = Receipttype::find($this->vid);
+                $obj = ReceiptType::find($this->vid);
                 $obj->vname = Str::ucfirst($this->vname);
                 $obj->active_id = $this->active_id;
                 $obj->save();
@@ -40,7 +40,7 @@ class ReceipttypeList extends Component
     public function getObj($id)
     {
         if ($id) {
-            $obj = Receipttype::find($id);
+            $obj = ReceiptType::find($id);
             $this->vid = $obj->id;
             $this->vname = $obj->vname;
             $this->active_id = $obj->active_id;
@@ -53,7 +53,7 @@ class ReceipttypeList extends Component
     #region[list]
     public function getList()
     {
-        return Receipttype::search($this->searches)
+        return ReceiptType::search($this->searches)
             ->where('active_id', '=', $this->activeRecord)
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);

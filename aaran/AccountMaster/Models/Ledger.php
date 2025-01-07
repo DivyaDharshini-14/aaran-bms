@@ -1,15 +1,14 @@
 <?php
 
-namespace Aaran\Accounts\Models;
+namespace Aaran\AccountMaster\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class AccountHeads extends Model
+class Ledger extends Model
 {
-
     use HasFactory;
 
     protected $guarded = [];
@@ -25,4 +24,8 @@ class AccountHeads extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function ledger_group(): BelongsTo
+    {
+        return $this->belongsTo(LedgerGroup::class);
+    }
 }

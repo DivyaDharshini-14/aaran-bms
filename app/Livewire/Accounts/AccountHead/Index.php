@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Accounts\AccountHead;
 
-use Aaran\Accounts\Models\AccountHeads;
+use Aaran\AccountMaster\Models\AccountHeads;
 use App\Livewire\Trait\CommonTraitNew;
 use Illuminate\Support\Carbon;
 use Livewire\Component;

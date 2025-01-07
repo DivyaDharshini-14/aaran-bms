@@ -52,16 +52,6 @@ class S03_UserSeeder extends Seeder
         ]);
 
 //        User::create([
-//            'name' => 'Jagadeesh',
-//            'email' => 'Jagadeesh@aaran.org',
-//            'password' => bcrypt('123456789'),
-//            'email_verified_at' => now(),
-//            'remember_token' => Str::random(10),
-//            'tenant_id' => '1',
-//            'role_id' => '1'
-//        ]);
-//
-//        User::create([
 //            'name' => 'Divya',
 //            'email' => 'divya@aaran.org',
 //            'password' => bcrypt('123456789'),
@@ -70,15 +60,6 @@ class S03_UserSeeder extends Seeder
 //            'tenant_id' => '1',
 //            'role_id' => '1'
 //        ]);
-//
-//        User::create([
-//            'name' => 'Alagiri Sankar',
-//            'email' => 'alagiri@aaran.org',
-//            'password' => bcrypt('123456789'),
-//            'email_verified_at' => now(),
-//            'remember_token' => Str::random(10),
-//            'tenant_id' => '1',
-//            'role_id' => '1'
-//        ]);
+
     }
 }

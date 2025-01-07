@@ -1,10 +1,10 @@
 <?php
 
-namespace Aaran\Accounts\Database\Seeders;
+namespace Aaran\AccountMaster\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class AccountHeadsSeeder extends Seeder
+class LedgerSeeder extends Seeder
 {
     /**
      * Run the database seeds.

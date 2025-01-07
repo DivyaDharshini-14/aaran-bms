@@ -2,45 +2,45 @@
 
 namespace Aaran\Common\Database\Seeders;
 
-use Aaran\Common\Models\Receipttype;
+use Aaran\Common\Models\ReceiptType;
 use Illuminate\Database\Seeder;
 
 class S113_ReceipttypeSeeder extends Seeder
 {
     public static function run(): void
     {
-        Receipttype::create([
+        ReceiptType::create([
             'vname' => '-',
             'active_id' => '1'
         ]);
 
 
-        Receipttype::create([
+        ReceiptType::create([
             'vname' => 'Cash',
             'active_id' => '1'
         ]);
 
-        Receipttype::create([
+        ReceiptType::create([
             'vname' => 'Cheque',
             'active_id' => '1'
         ]);
 
-        Receipttype::create([
+        ReceiptType::create([
             'vname' => 'PhonePe',
             'active_id' => '1'
         ]);
 
-        Receipttype::create([
+        ReceiptType::create([
             'vname' => 'GPay',
             'active_id' => '1'
         ]);
 
-        Receipttype::create([
+        ReceiptType::create([
             'vname' => 'RTGS',
             'active_id' => '1'
         ]);
 
-        Receipttype::create([
+        ReceiptType::create([
             'vname' => 'NEFT',
             'active_id' => '1'
         ]);

@@ -24,7 +24,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/receipt-types', App\Livewire\Common\ReceipttypeList::class)->name('receipt-types');
 
     Route::get('Factory', App\Livewire\Demo\Data\Factory\Index::class)->name('Factory');
-//    Route::get('productFactory', App\Livewire\Demo\Data\Product\Index::class)->name('productFactory');
 
 
 

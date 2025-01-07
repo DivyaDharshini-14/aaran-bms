@@ -2,11 +2,11 @@
 
 namespace Aaran\Common\Models;
 
-use Aaran\Common\Database\Factories\LedgerFactory;
+use Aaran\Common\Database\Factories\ReceipttypeFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ledger extends Model
+class ReceiptType extends Model
 {
     use HasFactory;
 
@@ -20,8 +20,8 @@ class Ledger extends Model
             : static::where('vname', 'like', '%' . $searches . '%');
     }
 
-    protected static function newFactory(): LedgerFactory
+    protected static function newFactory(): ReceipttypeFactory
     {
-        return new LedgerFactory();
+        return new ReceipttypeFactory();
     }
 }

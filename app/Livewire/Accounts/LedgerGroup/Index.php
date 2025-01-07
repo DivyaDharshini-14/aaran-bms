@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Accounts\LedgerGroup;
 
-use Aaran\Accounts\Models\AccountHeads;
-use Aaran\Accounts\Models\LedgerGroup;
+use Aaran\AccountMaster\Models\AccountHeads;
+use Aaran\AccountMaster\Models\LedgerGroup;
 use App\Livewire\Trait\CommonTraitNew;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;

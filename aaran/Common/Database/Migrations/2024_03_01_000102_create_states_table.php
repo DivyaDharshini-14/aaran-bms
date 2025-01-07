@@ -8,13 +8,14 @@ return new class extends Migration {
     public function up(): void
     {
         if (Aaran\Aadmin\Src\Customise::hasCommon()) {
-        Schema::create('states', function (Blueprint $table) {
-            $table->id();
-            $table->string('vname')->unique();
-            $table->string('state_code')->unique();
-            $table->smallInteger('active_id')->nullable();
-        });
-    }
+
+            Schema::create('states', function (Blueprint $table) {
+                $table->id();
+                $table->string('vname')->unique();
+                $table->string('state_code')->unique();
+                $table->smallInteger('active_id')->nullable();
+            });
+        }
     }
 
     public function down(): void

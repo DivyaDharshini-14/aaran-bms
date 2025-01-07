@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Accounts\Providers;
+namespace Aaran\AccountMaster\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;

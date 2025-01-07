@@ -2,13 +2,13 @@
 
 namespace Aaran\Common\Database\Factories;
 
-use Aaran\Common\Models\Receipttype;
+use Aaran\Common\Models\ReceiptType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ReceipttypeFactory extends Factory
 {
 
-    protected $model = Receipttype::class;
+    protected $model = ReceiptType::class;
 
     public function definition(): array
     {

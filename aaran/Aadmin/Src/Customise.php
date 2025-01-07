@@ -165,7 +165,7 @@ class Customise
     }
     #endregion
 
-    #region[Accounts]
+    #region[AccountMaster]
     public static function hasAccounts(): bool
     {
         return static::enabled(static::accounts());

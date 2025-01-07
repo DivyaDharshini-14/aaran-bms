@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Accounts\Providers;
+namespace Aaran\AccountMaster\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

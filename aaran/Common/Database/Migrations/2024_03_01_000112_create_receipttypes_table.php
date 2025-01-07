@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         if (Aaran\Aadmin\Src\Customise::hasCommon()) {
 
-            Schema::create('receipttypes', function (Blueprint $table) {
+            Schema::create('receipt_types', function (Blueprint $table) {
                 $table->id();
                 $table->string('vname')->unique();
                 $table->smallInteger('active_id')->nullable();
@@ -19,6 +19,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('receipttypes');
+        Schema::dropIfExists('receipt_types');
     }
 };

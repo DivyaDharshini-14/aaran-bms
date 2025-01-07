@@ -22,5 +22,5 @@ return [
     Aaran\Conclusion\Providers\ConclusionServiceProvider::class,
 
     Aaran\Logbook\Providers\LogbookServiceProvider::class,
-    Aaran\Accounts\Providers\AccountsServiceProvider::class,
+    Aaran\AccountMaster\Providers\AccountsServiceProvider::class,
 ];
