@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->foreignId('account_book_id')->references('id')->on('account_books');
             $table->string('opening_bal');
 
+            $table->decimal('vch_no',8,2)->nullable();
             $table->foreignId('contact_id')->references('id')->on('contacts');
             $table->string('paid_to')->nullable();
             $table->string('purpose')->nullable();
