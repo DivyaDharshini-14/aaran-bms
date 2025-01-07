@@ -5,7 +5,7 @@ namespace Aaran\Common\Database\Seeders;
 use Aaran\Common\Models\Hsncode;
 use Illuminate\Database\Seeder;
 
-class S107_HsncodeSeeder extends Seeder
+class S105_HsncodeSeeder extends Seeder
 {
     public static function run(): void
     {

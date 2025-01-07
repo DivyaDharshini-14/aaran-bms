@@ -5,7 +5,7 @@ namespace Aaran\Common\Database\Seeders;
 use Aaran\Common\Models\Country;
 use Illuminate\Database\Seeder;
 
-class S105_CountrySeeder extends Seeder
+class S103_CountrySeeder extends Seeder
 {
 
     public static function run(): void

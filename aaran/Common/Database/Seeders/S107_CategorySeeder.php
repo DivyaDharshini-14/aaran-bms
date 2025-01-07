@@ -5,7 +5,7 @@ namespace Aaran\Common\Database\Seeders;
 use Aaran\Common\Models\Category;
 use Illuminate\Database\Seeder;
 
-class S113_CategorySeeder extends Seeder
+class S107_CategorySeeder extends Seeder
 {
     public static function run(): void
     {
