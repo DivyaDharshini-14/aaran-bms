@@ -5,7 +5,7 @@ namespace Aaran\Master\Database\Seeders;
 use Aaran\Master\Models\Order;
 use Illuminate\Database\Seeder;
 
-class S204_OrderSeeder extends Seeder
+class S405_OrderSeeder extends Seeder
 {
     public static function run(): void
     {

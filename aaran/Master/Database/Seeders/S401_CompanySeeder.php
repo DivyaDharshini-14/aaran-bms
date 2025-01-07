@@ -5,7 +5,7 @@ namespace Aaran\Master\Database\Seeders;
 use Aaran\Master\Models\Company;
 use Illuminate\Database\Seeder;
 
-class S200_CompanySeeder extends Seeder
+class S401_CompanySeeder extends Seeder
 {
     public static function run(): void
     {

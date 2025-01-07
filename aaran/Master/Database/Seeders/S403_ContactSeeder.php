@@ -6,7 +6,7 @@ use Aaran\Master\Models\Contact;
 use Aaran\Master\Models\ContactDetail;
 use Illuminate\Database\Seeder;
 
-class S202_ContactSeeder extends Seeder
+class S403_ContactSeeder extends Seeder
 {
     public static function run(): void
     {
