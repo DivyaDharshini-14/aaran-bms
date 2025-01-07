@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        if (Aaran\Aadmin\Src\DbMigration::hasCommon()) {
+        if (Aaran\Aadmin\Src\Customise::hasCommon()) {
 
             Schema::create('transports', function (Blueprint $table) {
                 $table->id();
