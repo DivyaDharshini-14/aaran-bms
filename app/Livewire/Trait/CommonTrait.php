@@ -23,11 +23,13 @@ trait CommonTrait
     public string $activeRecord = "1";
 
     public string $searches = "";
+    public string $sortField = 'vname';
+
+
     public string $vid = "";
     #[Rule('required')]
     public string $vname = '';
     public bool $active_id = false;
-    public string $sortField = 'vname';
 
     public function rules(): array
     {

@@ -6,13 +6,16 @@ Role
 
 # 02-Common
 
-## 1- labels
-## 2- commons
-## 3- cities
-## 4- states
-## 5- countries
-## 6- pincodes
-## 7- hsncodes
+## 0- labels
+## 0- commons
+
+## 1- cities
+## 2- states
+## 3- countries
+
+
+## 6- pin-codes
+## 7- hsn-codes
 ## 8- units
 ## 9- categories
 ## 10- colours
@@ -21,7 +24,7 @@ Role
 ## 13- transports
 ## 14- banks
 ## 15- receipts
-## 16- despatches
+## 16- dispatches
 
 
 
