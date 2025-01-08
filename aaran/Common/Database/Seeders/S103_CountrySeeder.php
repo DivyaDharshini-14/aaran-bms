@@ -7,7 +7,6 @@ use Illuminate\Database\Seeder;
 
 class S103_CountrySeeder extends Seeder
 {
-
     public static function run(): void
     {
         Country::create([

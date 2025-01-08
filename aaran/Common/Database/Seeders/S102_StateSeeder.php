@@ -9,7 +9,6 @@ class S102_StateSeeder extends Seeder
 {
     public static function run(): void
     {
-
         State::create([
             'vname' => '-',
             'state_code' => '-',
