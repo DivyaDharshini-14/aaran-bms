@@ -8,7 +8,7 @@
 <x-menu.base.route-menuitem  href="{{route('banks')}}" :label="'Banks'"/>
 <x-menu.base.route-menuitem  href="{{route('ledgers')}}" :label="'Ledgers'"/>
 <x-menu.base.route-menuitem  href="{{route('transports')}}" :label="'Transports'"/>
-<x-menu.base.route-menuitem  href="{{route('departments')}}" :label="'Departments'"/>
+<x-menu.base.route-menuitem  href="{{route('department')}}" :label="'Departments'"/>
 <x-menu.base.route-menuitem  href="{{route('dispatches')}}" :label="'Dispatches'"/>
 <x-menu.base.route-menuitem  href="{{route('receipt-types')}}" :label="'Receipt-Types'"/>
 <x-menu.base.route-menuitem  href="{{route('receipt-types')}}" :label="'Product Type'"/>
