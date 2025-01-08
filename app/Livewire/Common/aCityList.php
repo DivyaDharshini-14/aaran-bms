@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class CityList extends Component
+class aCityList extends Component
 {
     use CommonTrait;
 
@@ -104,7 +104,7 @@ class CityList extends Component
     #region[render]
     public function render()
     {
-        return view('livewire.common.city-list')->with([
+        return view('livewire.common.acity-list')->with([
             'list' => $this->getList()
         ]);
     }

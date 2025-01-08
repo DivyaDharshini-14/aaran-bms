@@ -1,6 +1,5 @@
 <?php
 
 return [
-
-    'software' => 1
+    'name' => 'Common Module'
 ];
