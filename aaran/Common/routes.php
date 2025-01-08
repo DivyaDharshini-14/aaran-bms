@@ -5,11 +5,8 @@ use Illuminate\Support\Facades\Route;
 //Common
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-//    Route::get('/cities', App\Livewire\Common\aCityList::class)->name('cities');
 
-    Route::get('/cities', \Aaran\Common\Livewire\city\CityList::class)->name('cities');
-
-
+    Route::get('/cities', Aaran\Common\Livewire\city\CityList::class)->name('cities');
     Route::get('/states', Aaran\Common\Livewire\state\StateList::class)->name('states');
     Route::get('/pin-codes', Aaran\Common\Livewire\pincode\PincodeList::class)->name('pin-codes');
     Route::get('/countries', Aaran\Common\Livewire\country\CountryList::class)->name('countries');
