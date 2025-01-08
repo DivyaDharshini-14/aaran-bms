@@ -116,7 +116,7 @@ class Index extends Component
     public function render()
     {
         $this->log = Logbook::where('model_name','Style')->take(5)->get();
-        return view('livewire.master.style.index')->with([
+        return view('master::style.index')->with([
             'list' => $this->getListForm->getList(Style::class,function ($query){
                 return $query->where('company_id',session()->get('company_id'));
             }),

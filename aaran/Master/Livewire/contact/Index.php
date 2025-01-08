@@ -60,7 +60,7 @@ class Index extends Component
     public function render()
     {
 
-        return view('livewire.master.contact.index')->with([
+        return view('master::contact.index')->with([
             'list' => $this->getList(),
         ]);
     }

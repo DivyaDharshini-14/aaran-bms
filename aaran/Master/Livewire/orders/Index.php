@@ -110,7 +110,7 @@ class Index extends Component
         $this->log = Logbook::where('model_name', 'Order')->take(5)->get();
         $this->getListForm->searchField = 'order_name';
 
-        return view('livewire.master.orders.index')->with([
+        return view('master::orders.index')->with([
             'list' => $this->getListForm->getList(Order::class, function ($query) {
                 return $query->where('company_id', session()->get('company_id'));
             }),

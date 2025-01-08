@@ -453,7 +453,7 @@ class Index extends Component
         $this->getGstPercentList();
         $this->log = Logbook::where('model_name','Product')->take(5)->get();
 
-        return view('livewire.master.product.index')->with([
+        return view('master::product.index')->with([
             'list' => $this->getList()
         ]);
     }

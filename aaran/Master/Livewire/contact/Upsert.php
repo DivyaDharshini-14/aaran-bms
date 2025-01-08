@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Master\Livewire\company\Contact;
+namespace Aaran\Master\Livewire\contact;
 
 use Aaran\Common\Models\Common;
 use Aaran\Logbook\Models\Logbook;
@@ -832,7 +832,7 @@ class Upsert extends Component
         $this->getCountryList();
         $this->getMsmeTypeList();
         $this->getContactTypeList();
-        return view('livewire.master.contact.upsert');
+        return view('master::contact.upsert');
     }
     #endregion
 }
