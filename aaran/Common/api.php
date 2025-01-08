@@ -17,7 +17,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/hsn-codes', App\Livewire\Common\HsncodeList::class)->name('hsn-codes');
     Route::get('/categories', App\Livewire\Common\CategoryList::class)->name('categories');
     Route::get('/transports', App\Livewire\Common\TransportList::class)->name('transports');
-    Route::get('/departments', App\Livewire\Common\DepartmentList::class)->name('departments');
+    Route::get('/department', App\Livewire\Common\DepartmentList::class)->name('department');
     Route::get('/ledgers', App\Livewire\Common\LedgerList::class)->name('ledgers');
     Route::get('/sizes', App\Livewire\Common\SizeList::class)->name('sizes');
     Route::get('/colours', App\Livewire\Common\ColourList::class)->name('colours');

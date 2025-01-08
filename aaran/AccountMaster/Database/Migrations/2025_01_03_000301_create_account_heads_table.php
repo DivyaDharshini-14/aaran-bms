@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('account_heads', function (Blueprint $table) {
             $table->id();
-            $table->text('vname')->unique();
+            $table->string('vname')->unique();
             $table->longText('description')->nullable();
             $table->string('opening')->nullable();
             $table->string('opening_date')->nullable();

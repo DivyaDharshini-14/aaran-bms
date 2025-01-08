@@ -24,7 +24,7 @@ class Index extends Component
             'banks' => 9,
             'ledgers' => 10,
             'transports' => 11,
-            'departments' => 12,
+            'department' => 12,
             'receipttypes' => 14,
             'categories' => 18,
         ];

@@ -17,7 +17,7 @@ class DepartmentList extends Component
     {
         if ($this->vname != '') {
             if ($this->vid == "") {
-                $this->validate(['vname' => 'required|unique:departments,vname']);
+                $this->validate(['vname' => 'required|unique:department,vname']);
                 Department::create([
                     'vname' => Str::ucfirst($this->vname),
                     'active_id' => $this->active_id,

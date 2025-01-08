@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('ledgers', function (Blueprint $table) {
             $table->id();
-            $table->text('vname');
+            $table->string('vname')->unique();
             $table->longText('description')->nullable();
             $table->foreignId('ledger_group_id')->references('id')->on('ledger_groups')->onDelete('cascade');
             $table->string('opening')->nullable();
