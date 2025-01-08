@@ -20,28 +20,28 @@ class CityList extends Component
     public function rules(): array
     {
         return [
-            'vname' => 'required:cities,vname',
+            'vname' => 'required|unique:cities,vname',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'vname.required' => 'The :attribute are missing.',
-            'vname.unique' => 'The :attribute is already created.',
+            'vname.required' => ':attribute is missing.',
+            'vname.unique' => 'This :attribute is already created.',
         ];
     }
 
     public function validationAttributes(): array
     {
         return [
-            'vname' => 'name',
+            'vname' => 'city name',
         ];
     }
 
     #endregion[Validation]
 
-    #region[save]
+    #region[getSave]
     public function getSave(): void
     {
         $this->validate();
@@ -75,7 +75,7 @@ class CityList extends Component
     }
     #endregion[Clear Fields]
 
-    #region[obj]
+    #region[getObj]
     public function getObj($id): void
     {
         if ($id) {
@@ -87,7 +87,7 @@ class CityList extends Component
     }
     #endregion
 
-    #region[list]
+    #region[getList]
     public function getList()
     {
         return City::search($this->searches)

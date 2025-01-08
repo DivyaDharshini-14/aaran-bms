@@ -43,6 +43,7 @@
 
         <x-forms.create :id="$vid">
             <x-input.floating wire:model="vname" label="City Name" />
+            <x-input.error-text wire:model="vname"/>
         </x-forms.create>
 
 
