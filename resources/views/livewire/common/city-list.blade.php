@@ -5,52 +5,46 @@
         <!-- Top Controls --------------------------------------------------------------------------------------------->
         <x-forms.top-controls :show-filters="$showFilters"/>
 
-        <!-- Header --------------------------------------------------------------------------------------------------->
-        <div class="relative">
-            <x-forms.table :list="$list">
-                <x-slot name="table_header">
-                    <x-table.header-serial wire:click.prevent="sortBy('vname')"/>
-                    <x-table.header-text wire:click.prevent="sortBy('vname')" center>City</x-table.header-text>
-                    <x-table.header-action/>
-                </x-slot>
+        <!-- Table Caption -------------------------------------------------------------------------------------------->
+        <x-table.caption :caption="'Labels'">
+            {{$list->count()}}
+        </x-table.caption>
 
-                <!-- Table Body --------------------------------------------------------------------------------------->
-                <x-slot name="table_body">
-                    @forelse ($list as $index =>  $row)
+        <!-- Table Data ----------------------------------------------------------------------------------------------->
 
-                        <x-table.row>
-                            <x-table.cell-text center>
-                                {{ $index + 1 }}
-                            </x-table.cell-text>
+        <x-table.form>
+            <x-slot:table_header>
+                <x-table.header-serial/>
+                <x-table.header-text wire:click.prevent="sortBy('id')"  sortIcon="none">
+                    Name
+                </x-table.header-text>
+                <x-table.header-status/>
+                <x-table.header-action/>
+            </x-slot:table_header>
 
-                            <x-table.cell-text>
-                                {{ $row->vname}}
-                            </x-table.cell-text>
+            <x-slot:table_body>
+                @foreach($list as $index=>$row)
+                    <x-table.row>
+                        <x-table.cell-text>{{$index+1}}</x-table.cell-text>
+                        <x-table.cell-text>{{$row->vname}}</x-table.cell-text>
+                        <x-table.cell-status active="{{$row->active_id}}"/>
+                        <x-table.cell-action id="{{$row->id}}"/>
+                    </x-table.row>
+                @endforeach
+            </x-slot:table_body>
+        </x-table.form>
 
-                            <x-table.cell-action id="{{$row->id}}"/>
-                        </x-table.row>
-
-                    @empty
-                        <x-table.empty/>
-                    @endforelse
-                </x-slot>
-
-                <!-- Pagination/Loading-------------------------------------------------------------------------------->
-                <x-slot name="table_pagination">
-                    {{ $list->links() }}
-                </x-slot>
-            </x-forms.table>
-        </div>
-
+        <!-- Delete Modal --------------------------------------------------------------------------------------------->
         <x-modal.delete/>
 
+        <div class="pt-5">{{ $list->links() }}</div>
+
         <!-- Create/ Edit Popup --------------------------------------------------------------------------------------->
+
         <x-forms.create :id="$vid">
-            <x-input.model-text wire:model="vname" :label="'City Name'"/>
-            @error('vname')
-            <span class="text-red-500">{{  $message }}</span>
-            @enderror
+            <x-input.floating wire:model="vname" label="City Name" />
         </x-forms.create>
+
 
     </x-forms.m-panel>
 </div>

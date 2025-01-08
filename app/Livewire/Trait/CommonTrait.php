@@ -10,33 +10,17 @@ trait CommonTrait
 {
     use WithPagination;
 
-    public $start_date;
-    public $end_date;
-    public $filter;
-    public $byOrder;
     public bool $showEditModal = false;
     public bool $showFilters = false;
     public bool $showDeleteModal = false;
 
     public bool $sortAsc = true;
     public string $perPage = "100";
-    public string $activeRecord = "1";
 
     public string $searches = "";
-    public string $sortField = 'vname';
+    public string $sortField = 'id';
 
-
-    public string $vid = "";
-    #[Rule('required')]
-    public string $vname = '';
-    public bool $active_id = false;
-
-    public function rules(): array
-    {
-        return [
-            'vname' => 'required',
-        ];
-    }
+    public $vid = '';
 
     public function toggleShowFilters(): void
     {
@@ -65,32 +49,15 @@ trait CommonTrait
         $this->showEditModal = true;
     }
 
-    public function clearFields(): void
-    {
-        $this->vid = '';
-        $this->vname = '';
-        $this->active_id = '1';
-        $this->searches = '';
-        $this->order_name='';
-        $this->desc='';
-
-    }
-
     public function resetFilters()
     {
-        $this->activeRecord='1';
         $this->resetPage();
         $this->showFilters = false;
-        $this->start_date='';
-        $this->end_date='';
-        $this->filter='';
-        $this->byOrder='';
     }
 
     public function save(): void
     {
         $message = $this->getSave();
-        session()->flash('success', '"' . $this->vname . '"  has been' . $message . ' .');
         $this->clearFields();
         $this->showEditModal = false;
     }

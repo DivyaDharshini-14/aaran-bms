@@ -20,9 +20,9 @@
             <div class="sm:px-6 px-3 py-3 bg-gray-100 text-right">
                 <div class="w-full flex justify-between gap-3">
                     <div class="py-2">
-                        <label for="common.active_id" class="inline-flex relative items-center cursor-pointer">
-                            <input type="checkbox" id="common.active_id" class="sr-only peer"
-                                   wire:model="common.active_id">
+                        <label for="active_id" class="inline-flex relative items-center cursor-pointer">
+                            <input type="checkbox" id="active_id" class="sr-only peer"
+                                   wire:model="active_id">
                             <div
                                 class="w-10 h-5 bg-gray-200 rounded-full peer peer-focus:ring-2
                                         peer-focus:ring-blue-300
