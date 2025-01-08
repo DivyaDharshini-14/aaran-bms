@@ -15,7 +15,7 @@ trait CommonTrait
     public bool $showDeleteModal = false;
 
     public bool $sortAsc = true;
-    public string $perPage = "100";
+    public string $perPage = "50";
 
     public string $searches = "";
     public string $sortField = 'id';
