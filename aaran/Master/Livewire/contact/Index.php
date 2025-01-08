@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Master\Livewire\company\Contact;
+namespace Aaran\Master\Livewire\contact;
 
 
 use Aaran\Logbook\Models\Logbook;

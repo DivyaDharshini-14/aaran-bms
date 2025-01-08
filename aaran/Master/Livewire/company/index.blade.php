@@ -319,7 +319,7 @@
                                     </div>
                                 </x-dropdown.wrapper>
 
-                                {{--                                <x-input.floating wire:model="msme_type" label="MSME Type" />--}}
+{{--                                <x-input.floating wire:model="msme_type" label="MSME Type" />--}}
                             </div>
                         </x-tabs.content>
                     </x-slot>

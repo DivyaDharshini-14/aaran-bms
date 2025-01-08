@@ -7,7 +7,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 //    Route::get('/cities', App\Livewire\Common\aCityList::class)->name('cities');
 
-    Route::get('/companies', \Aaran\Master\Livewire\company\CompanyList::class)->name('companies');
+    Route::get('/companies', \Aaran\Master\Livewire\company\Index::class)->name('companies');
 
 
 

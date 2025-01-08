@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Master\Livewire\company\CompanyList;
+namespace Aaran\Master\Livewire\company;
 
 use Livewire\Component;
 

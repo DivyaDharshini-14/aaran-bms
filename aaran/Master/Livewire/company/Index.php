@@ -2,7 +2,6 @@
 
 namespace Aaran\Master\Livewire\company;
 
-use Aaran\Common\Models\City;
 use Aaran\Master\Models\Company;
 use Aaran\Common\Models\Common;
 use Aaran\Logbook\Models\Logbook;
@@ -16,7 +15,7 @@ use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class CompanyList extends Component
+class Index extends Component
 {
     use WithFileUploads;
     use CommonTraitNew;
@@ -149,7 +148,7 @@ class CompanyList extends Component
 
     public function citySave($name)
     {
-        $obj = City::create([
+        $obj = Common::create([
             'label_id' => 2,
             'vname' => $name,
             'active_id' => '1'
@@ -160,11 +159,9 @@ class CompanyList extends Component
 
     public function getCityList(): void
     {
-//        $this->cityCollection = $this->city_name ?
-//            Common::search(trim($this->city_name))->where('label_id', '=', '2')->get() :
-//            Common::where('label_id', '=', '2')->Orwhere('label_id', '=', '1')->get();
-            City::where('vname')->get();
-
+        $this->cityCollection = $this->city_name ?
+            Common::search(trim($this->city_name))->where('label_id', '=', '2')->get() :
+            Common::where('label_id', '=', '2')->Orwhere('label_id', '=', '1')->get();
     }
     #endregion
 
@@ -653,7 +650,7 @@ class CompanyList extends Component
         $this->getMsmeTypeList();
         $this->getCountryList();
         $this->log = Logbook::where('vname','Company')->take(5)->get();
-        return view('master::company.company-list')->with([
+        return view('livewire.master.company-list.index')->with([
             'list' => $this->getListForm->getList(Company::class,function ($query){
                 return $query->where('tenant_id',session()->get('tenant_id'));
             }),

@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Master\Livewire\company\Product;
+namespace Aaran\Master\Livewire\product;
 
 use Aaran\Common\Models\Common;
 use Aaran\Logbook\Models\Logbook;

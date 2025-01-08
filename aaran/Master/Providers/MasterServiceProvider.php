@@ -22,7 +22,7 @@ class MasterServiceProvider extends ServiceProvider
     {
         $this->loadMigrations();
 
-        Livewire::component('master::company-list', company\CompanyList::class);
+        Livewire::component('master::company-list', company\Index::class);
     }
 
     protected function loadConfigs(): void

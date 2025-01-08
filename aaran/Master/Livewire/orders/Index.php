@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Master\Livewire\company\Orders;
+namespace Aaran\Master\Livewire\orders;
 
 use Aaran\Logbook\Models\Logbook;
 use Aaran\Master\Models\Order;
