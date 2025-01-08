@@ -7,16 +7,37 @@ use Illuminate\Database\Seeder;
 
 class S301_AccountHeadsSeeder extends Seeder
 {
-    public function run(): void
+    public static function run(): void
     {
-        AccountHeads::create([
-            'vname'=>'',
-            'description'=>'-',
-            'opening'=>'0',
-            'opening_date'=>'2025-01-01',
-            'current'=>'0',
-            'active_id'=>'1',
-            'user_id'=>'1',
-        ]);
+        foreach (self::vData() as $head) {
+
+            AccountHeads::create([
+                'vname' => $head,
+                'description' => ucfirst($head),
+                'opening' => '0',
+                'opening_date' => '2024-04-01',
+                'current' => '0',
+                'active_id' => '1',
+                'user_id' => '1',
+            ]);
+        }
     }
+
+    private function vData()
+    {
+        return [
+            'CAPITAL ACCOUNT',
+            'CURRENT ASSETS',
+            'CURRENT LIABILITIES',
+            'DIRECT EXPENSE',
+            'INDIRECT EXPENSE',
+            'INDIRECT INCOMES',
+            'INVESTMENTS',
+            'LOANS AND LIABILITIES',
+            'PURCHASES ACCOUNT',
+            'SALES ACCOUNT',
+            'SUSPENSE ACCOUNT',
+        ];
+    }
+
 }

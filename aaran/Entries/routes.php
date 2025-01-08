@@ -5,28 +5,28 @@ use Illuminate\Support\Facades\Route;
 //Entries
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-    Route::get('/sales', App\Livewire\Entries\Sales\Index::class)->name('sales');
-    Route::get('/sales/{id}/upsert', App\Livewire\Entries\Sales\Upsert::class)->name('sales.upsert');
-    Route::get('/sales/{id}/eway', App\Livewire\Entries\Sales\EwayBill::class)->name('sales.eway');
-    Route::get('/sales/{id}/einvoice', App\Livewire\Entries\Sales\Einvoice::class)->name('sales.einvoice');
+    Route::get('/sales', Aaran\Entries\Livewire\sales\Index::class)->name('sales');
+    Route::get('/sales/{id}/upsert', Aaran\Entries\Livewire\sales\Upsert::class)->name('sales.upsert');
+    Route::get('/sales/{id}/eway', Aaran\Entries\Livewire\sales\EwayBill::class)->name('sales.eway');
+    Route::get('/sales/{id}/einvoice', Aaran\Entries\Livewire\sales\Einvoice::class)->name('sales.einvoice');
     Route::get('/sales/{id}/print', App\Http\Controllers\Entries\Sales\SalesInvoiceController::class)->name('sales.print');
     Route::get('/purchases/{id}/print', App\Http\Controllers\Entries\Purchases\PurchaseInvoiceController::class)->name('purchases.print');
     Route::get('/sales/{id}/invoice', App\Http\Controllers\Entries\Sales\InvController::class)->name('sales.invoice');
 
-    Route::get('/purchase', App\Livewire\Entries\Purchase\Index::class)->name('purchase');
-    Route::get('/purchase/{id}/upsert', App\Livewire\Entries\Purchase\Upsert::class)->name('purchase.upsert');
+    Route::get('/purchase', Aaran\Entries\Livewire\purchase\Index::class)->name('purchase');
+    Route::get('/purchase/{id}/upsert', Aaran\Entries\Livewire\purchase\Upsert::class)->name('purchase.upsert');
 
-    Route::get('/exportsales', App\Livewire\Entries\ExportSales\Index::class)->name('exportsales');
-    Route::get('/exportsales/{id}/upsert', App\Livewire\Entries\ExportSales\Upsert::class)->name('exportsales.upsert');
-    Route::get('/exportsales/{id}/packingList', App\Livewire\Entries\ExportSales\PackingList::class)->name('exportsales.packingList');
+    Route::get('/exportsales', Aaran\Entries\Livewire\exportSales\Index::class)->name('exportsales');
+    Route::get('/exportsales/{id}/upsert', Aaran\Entries\Livewire\exportSales\Upsert::class)->name('exportsales.upsert');
+    Route::get('/exportsales/{id}/packingList', Aaran\Entries\Livewire\exportSales\PackingList::class)->name('exportsales.packingList');
     Route::get('/exportsales/{id}/print', App\Http\Controllers\Entries\ExportSales\ExportInvoiceController::class)->name('exportsales.print');
     Route::get('/exportsales/{id}/packingListPrint', App\Http\Controllers\Entries\ExportSales\ExportPackingListController::class)->name('exportsales.packingListPrint');
 
-    Route::get('transactions/{id}', App\Livewire\Entries\Payment\Index::class)->name('transactions');
+    Route::get('transactions/{id}', Aaran\Entries\Livewire\Payment\Index::class)->name('transactions');
     Route::get('transactions/{id}/print', App\Http\Controllers\Transaction\PaymentController::class)->name('transactions.print');
 
-    Route::get('/receivables', \App\Livewire\Reports\Statement\Receivable::class)->name('receivables');
-    Route::get('/payables', \App\Livewire\Reports\Statement\Payable::class)->name('payables');
+    Route::get('/receivables', App\Livewire\Reports\Statement\Receivable::class)->name('receivables');
+    Route::get('/payables', App\Livewire\Reports\Statement\Payable::class)->name('payables');
     Route::get('/payables-report/{id}', App\Livewire\Reports\Statement\PayablesReport::class)->name('payables-report');
     Route::get('/receivables-report/{id}', App\Livewire\Reports\Statement\ReceivablesReport::class)->name('receivables-report');
     Route::get('/salesMonthly', App\Livewire\Reports\Sales\MonthlyReport::class)->name('salesMonthly');

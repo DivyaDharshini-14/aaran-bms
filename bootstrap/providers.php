@@ -20,5 +20,5 @@ return [
     Aaran\Taskmanager\Providers\TaskmanagerServiceProvider::class,
 
     Aaran\Logbook\Providers\LogbookServiceProvider::class,
-    Aaran\AccountMaster\Providers\AccountsServiceProvider::class,
+    Aaran\AccountMaster\Providers\AccountMasterServiceProvider::class,
 ];

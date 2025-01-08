@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Aaran\AccountMaster\Database\Seeders\S301_AccountHeadsSeeder;
 use Aaran\Common\Database\Seeders\S101_CitySeeder;
 use Aaran\Common\Database\Seeders\S101_LabelSeeder;
 use Aaran\Common\Database\Seeders\S102_CommonSeeder;
@@ -49,6 +50,8 @@ class DatabaseSeeder extends Seeder
         S112_BankSeeder::run();
         S113_ReceipttypeSeeder::run();
         S114_DespatcheSeeder::run();
+
+        S301_AccountHeadsSeeder::run();
 
         S401_CompanySeeder::run();
         S403_ContactSeeder::run();

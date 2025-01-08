@@ -1,6 +1,5 @@
 <?php
 
 return [
-
-    'software' => 1
+    'name' => 'Account Master Module'
 ];
