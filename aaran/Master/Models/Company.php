@@ -2,6 +2,7 @@
 
 namespace Aaran\Master\Models;
 
+use Aaran\Common\Models\City;
 use Aaran\Common\Models\Common;
 use Aaran\Master\Database\Factories\CompanyFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -49,16 +50,21 @@ class Company extends Model
         ]);
     }
 
-    public function commons(): HasOne
-    {
-        return $this->hasOne(Common::class, 'id', 'city_id')
-            ->orWhere('id', 'state_id')
-            ->orWhere('id', 'pincode_id');
-    }
+//    public function commons(): HasOne
+//    {
+//        return $this->hasOne(Common::class, 'id', 'city_id')
+//            ->orWhere('id', 'state_id')
+//            ->orWhere('id', 'pincode_id');
+//    }
 
     public static function common($id)
     {
         return Common::find($id)->vname;
+    }
+
+    public static function city($id)
+    {
+        return City::find($id)->vname;
     }
 
     protected static function newFactory(): CompanyFactory
@@ -66,8 +72,8 @@ class Company extends Model
         return new CompanyFactory();
     }
 
-    public function companyDetail():HasMany
-    {
-        return  $this->hasMany(CompanyDetail::class);
-    }
+//    public function companyDetail():HasMany
+//    {
+//        return  $this->hasMany(CompanyDetail::class);
+//    }
 }

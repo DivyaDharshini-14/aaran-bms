@@ -25,7 +25,7 @@
             page-break-after: always;
         }
 
-        /* company logo , name and address  */
+        /* company-list logo , name and address  */
         .comp-name {
             font-size: 40px;
             font-weight: bold;
@@ -44,7 +44,7 @@
             margin: 15px 0 0 20px;
         }
 
-        /*  company Invoice header, address, no. and date.    */
+        /*  company-list Invoice header, address, no. and date.    */
         .table-2 {
             border-top: none;
             border-bottom: none;
@@ -226,7 +226,7 @@
 <body>
 
 {{--Original Copy --}}
-{{--/* company logo , name and address  */--}}
+{{--/* company-list logo , name and address  */--}}
 <table class="table-1">
     <tr>
         <td>
@@ -254,7 +254,7 @@
         </td> {{-- td - empty div  --}}
     </tr>
 </table>
-{{--/*  company Invoice header, address, no. and date.    */--}}
+{{--/*  company-list Invoice header, address, no. and date.    */--}}
 <table class="table-2">
     <tr class="inv-header">
         <td style="width: 250px;border-right: none;"></td>
@@ -501,7 +501,7 @@
 <div class="page-break"></div>
 
 {{--Duplicate Copy --}}
-{{--/* company logo , name and address  */--}}
+{{--/* company-list logo , name and address  */--}}
 <table class="table-1">
     <tr>
         <td>
@@ -523,7 +523,7 @@
         </td> {{-- td - empty div  --}}
     </tr>
 </table>
-{{--/*  company Invoice header, address, no. and date.    */--}}
+{{--/*  company-list Invoice header, address, no. and date.    */--}}
 <table class="table-2">
     <tr class="inv-header">
         <td style="width: 250px;border-right: none;"></td>
@@ -772,7 +772,7 @@
 
 
 {{--Office Copy --}}
-{{--/* company logo , name and address  */--}}
+{{--/* company-list logo , name and address  */--}}
 <table class="table-1">
     <tr>
         <td>
@@ -794,7 +794,7 @@
         </td> {{-- td - empty div  --}}
     </tr>
 </table>
-{{--/*  company Invoice header, address, no. and date.    */--}}
+{{--/*  company-list Invoice header, address, no. and date.    */--}}
 <table class="table-2">
     <tr class="inv-header">
         <td style="width: 250px;border-right: none;"></td>

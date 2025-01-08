@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Master\Company;
+namespace App\Livewire\Master\CompanyList;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class Upsert extends Component
 {
     public function render()
     {
-        return view('livewire.master.company.upsert');
+        return view('livewire.company.company.upsert');
     }
 }

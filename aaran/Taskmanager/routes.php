@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-//master
+//company
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/task', \App\Livewire\TaskManger\Task\Index::class)->name('task');
