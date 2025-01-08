@@ -19,8 +19,6 @@ return [
     Aaran\Demodata\Providers\DemodataServiceProvider::class,
     Aaran\Taskmanager\Providers\TaskmanagerServiceProvider::class,
 
-    Aaran\Conclusion\Providers\ConclusionServiceProvider::class,
-
     Aaran\Logbook\Providers\LogbookServiceProvider::class,
     Aaran\AccountMaster\Providers\AccountsServiceProvider::class,
 ];
