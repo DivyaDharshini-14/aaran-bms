@@ -11,7 +11,7 @@ class S403_ContactSeeder extends Seeder
     public static function run(): void
     {
         Contact::create([
-            'vname'=>'XYZ company pvt ltd',
+            'vname'=>'XYZ company-list pvt ltd',
             'gstin'=>'29AWGPV7107B1Z1',
             'company_id'=>'1',
             'user_id'=>'1',

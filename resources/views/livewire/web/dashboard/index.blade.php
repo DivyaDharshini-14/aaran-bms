@@ -60,7 +60,7 @@
 {{--                    <div class="pt-5">--}}
 {{--                        <div>--}}
 {{--                            @if ($monthlyTotals->isEmpty())--}}
-{{--                                <p>No sales data available for this company.</p>--}}
+{{--                                <p>No sales data available for this company-list.</p>--}}
 {{--                            @else--}}
 {{--                                <canvas id="myChart" style="width:100%; max-width:600px;"></canvas>--}}
 {{--                                <script>--}}

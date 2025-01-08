@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Master\Company;
+namespace App\Livewire\Master;
 
+use Aaran\Master\Models\Company;
 use Aaran\Common\Models\Common;
 use Aaran\Logbook\Models\Logbook;
-use Aaran\Master\Models\Company;
 use App\Livewire\Trait\CommonTraitNew;
 use App\Models\Tenant;
 use Illuminate\Database\Eloquent\Collection;
@@ -15,7 +15,7 @@ use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class Index extends Component
+class CompanyList extends Component
 {
     use WithFileUploads;
     use CommonTraitNew;
@@ -650,7 +650,7 @@ class Index extends Component
         $this->getMsmeTypeList();
         $this->getCountryList();
         $this->log = Logbook::where('vname','Company')->take(5)->get();
-        return view('livewire.master.company.index')->with([
+        return view('livewire.master.company-list.index')->with([
             'list' => $this->getListForm->getList(Company::class,function ($query){
                 return $query->where('tenant_id',session()->get('tenant_id'));
             }),

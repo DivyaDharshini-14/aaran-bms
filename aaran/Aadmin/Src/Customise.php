@@ -35,7 +35,7 @@ class Customise
 
     public static function master(): string
     {
-        return 'master';
+        return 'company';
     }
 
     #endregion

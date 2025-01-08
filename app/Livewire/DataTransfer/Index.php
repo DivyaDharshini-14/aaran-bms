@@ -65,16 +65,16 @@ class Index extends Component
         // Fetch all old companies from the destination database
         $oldCompanies = DB::connection('destination')->table('companies')->get();
         foreach ($oldCompanies as $oldCompany) {
-            // Check if the company already exists in the current database
+            // Check if the company-list already exists in the current database
             $exists = DB::table('companies')->where('vname', $oldCompany->vname)->exists();
-            // If it doesn't exist, prepare to create a new company
+            // If it doesn't exist, prepare to create a new company-list
             if (!$exists) {
                 // Convert stdClass to array
                 $oldCompanyArray = (array) $oldCompany;
                 // Fetch related data (city, state, pin code)
                 $locationData = $this->getLocationData($oldCompanyArray);
                 unset($oldCompanyArray['msme_type'], $oldCompanyArray['id']);
-                // Create a new company with the gathered data
+                // Create a new company-list with the gathered data
                 Company::create(array_merge($oldCompanyArray, [
                     'city_id' => $locationData['city_id'],
                     'state_id' => $locationData['state_id'],

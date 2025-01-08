@@ -21,10 +21,10 @@ return new class extends Migration {
                 $table->string('pan')->nullable();
                 $table->string('email')->nullable();
                 $table->string('website')->nullable();
-                $table->foreignId('city_id')->references('id')->on('commons');
-                $table->foreignId('state_id')->references('id')->on('commons');
-                $table->foreignId('pincode_id')->references('id')->on('commons');
-                $table->foreignId('country_id')->references('id')->on('commons');
+                $table->foreignId('city_id')->references('id')->on('cities');
+                $table->foreignId('state_id')->references('id')->on('states');
+                $table->foreignId('pincode_id')->references('id')->on('pincodes');
+                $table->foreignId('country_id')->references('id')->on('countries');
                 $table->string('bank')->nullable();
                 $table->string('acc_no')->nullable();
                 $table->string('ifsc_code')->nullable();

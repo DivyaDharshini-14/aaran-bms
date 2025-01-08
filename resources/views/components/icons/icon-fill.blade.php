@@ -754,7 +754,7 @@
                 </g>
                 </svg>
             @break
-        @case('master-menu')
+        @case('company-menu')
             <svg fill="" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink"
                  viewBox="0 0 484.157 484.157" xml:space="preserve">
