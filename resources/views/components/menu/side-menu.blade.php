@@ -27,16 +27,16 @@
 
 
             @if(Aaran\Aadmin\Src\Customise::hasEntries())
-                <x-menu.sub.entries/>
+{{--                <x-menu.sub.entries/>--}}
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasTransaction())
-                <x-menu.sub.transaction/>
+{{--                <x-menu.sub.transaction/>--}}
 
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasMaster())
-                <x-menu.sub.master/>
+{{--                <x-menu.sub.master/>--}}
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasCommon())
@@ -44,23 +44,23 @@
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasReport())
-                <x-menu.sub.reports/>
+{{--                <x-menu.sub.reports/>--}}
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasDemoData())
-                <x-menu.sub.demodata/>
+{{--                <x-menu.sub.demodata/>--}}
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasTaskManager())
-                <x-menu.sub.task/>
+{{--                <x-menu.sub.task/>--}}
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasLogbook())
-                <x-menu.sub.logbook/>
+{{--                <x-menu.sub.logbook/>--}}
             @endif
 
                 @if(Aaran\Aadmin\Src\Customise::hasAccounts())
-                    <x-menu.sub.accounts/>
+{{--                    <x-menu.sub.accounts/>--}}
                 @endif
 
 
