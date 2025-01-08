@@ -650,7 +650,7 @@ class Index extends Component
         $this->getMsmeTypeList();
         $this->getCountryList();
         $this->log = Logbook::where('vname','Company')->take(5)->get();
-        return view('livewire.master.company-list.index')->with([
+        return view('master::company.index')->with([
             'list' => $this->getListForm->getList(Company::class,function ($query){
                 return $query->where('tenant_id',session()->get('tenant_id'));
             }),

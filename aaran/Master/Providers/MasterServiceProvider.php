@@ -27,6 +27,7 @@ class MasterServiceProvider extends ServiceProvider
         $this->loadMigrations();
 
         Livewire::component('master::company-list', company\Index::class);
+        Livewire::component('master::company-upsert', company\Upsert::class);
 
         Livewire::component('master::contact-list', contact\Index::class);
         Livewire::component('master::contact-upsert', contact\Upsert::class);
