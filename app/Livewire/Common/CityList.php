@@ -95,7 +95,7 @@ class CityList extends Component
     public function getList()
     {
         return City::search($this->searches)
-            ->where('active_id', '=', Active::ACTIVE)
+            ->where('active_id', '=', $this->activeRecord)
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
     }

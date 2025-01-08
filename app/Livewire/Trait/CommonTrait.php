@@ -19,6 +19,7 @@ trait CommonTrait
 
     public string $searches = "";
     public string $sortField = 'id';
+    public string $activeRecord = "1";
 
     public $vid = '';
 
@@ -51,8 +52,10 @@ trait CommonTrait
 
     public function resetFilters()
     {
+        $this->activeRecord='1';
         $this->resetPage();
         $this->showFilters = false;
+
     }
 
     public function save(): void
