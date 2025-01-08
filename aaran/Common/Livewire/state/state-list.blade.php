@@ -15,7 +15,7 @@
         <x-table.form>
             <x-slot:table_header>
                 <x-table.header-serial/>
-                <x-table.header-text  wire:click.prevent="sortBy('id')"  sortIcon="{{$sortAsc}}" :left="true">
+                <x-table.header-text wire:click.prevent="sortBy('id')" sortIcon="{{$sortAsc}}" :left="true">
                     Name
                 </x-table.header-text>
 
@@ -47,10 +47,11 @@
         <!-- Create/ Edit Popup --------------------------------------------------------------------------------------->
 
         <x-forms.create :id="$vid">
-            <x-input.floating wire:model="vname" label="State Name" />
-            <x-input.floating wire:model="state_code" label="State Code" />
-
-
+            <div class="flex flex-col  gap-3">
+                <x-input.floating wire:model="vname" label="State Name"/>
+                <x-input.error-text wire:model="vname"/>
+                <x-input.floating wire:model="state_code" label="State Code"/>
+            </div>
         </x-forms.create>
 
 

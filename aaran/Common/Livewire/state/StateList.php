@@ -22,22 +22,22 @@ class StateList extends Component
     public function rules(): array
     {
         return [
-            'vname' => 'required:states,vname',
+            'vname' => 'required|unique:states,vname',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'vname.required' => 'The :attribute are missing.',
-            'vname.unique' => 'The :attribute is already created.',
+            'vname.required' => ':attribute is missing.',
+            'vname.unique' => 'This :attribute is already created.',
         ];
     }
 
     public function validationAttributes(): array
     {
         return [
-            'vname' => 'name',
+            'vname' => 'state name',
         ];
     }
 
