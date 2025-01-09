@@ -6,7 +6,9 @@ return [
 
     'soft_version' => '1.0.0.196.100',
 
-    'current_acyear' => '2024_25',
+    'current_acyear' => \App\Enums\AcYear::AY_2024_25,
+
+//    'current_acyear' => '2024_25',
 
     'app_type' => env('APP_TYPE', '1'),
 

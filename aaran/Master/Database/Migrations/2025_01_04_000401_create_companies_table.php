@@ -24,15 +24,12 @@ return new class extends Migration {
                 $table->foreignId('city_id')->references('id')->on('cities');
                 $table->foreignId('state_id')->references('id')->on('states');
                 $table->foreignId('pincode_id')->references('id')->on('pincodes');
-                $table->foreignId('country_id')->references('id')->on('countries');
                 $table->string('bank')->nullable();
                 $table->string('acc_no')->nullable();
                 $table->string('ifsc_code')->nullable();
                 $table->string('branch')->nullable();
-                $table->string('inv_pfx')->nullable();
-                $table->string('iec_no')->nullable();
                 $table->string('msme_no')->nullable();
-                $table->foreignId('msme_type_id')->nullable();
+                $table->string('msme_type')->nullable();
                 $table->string('active_id', 3)->nullable();
                 $table->foreignId('user_id')->references('id')->on('users');
                 $table->foreignId('tenant_id')->references('id')->on('tenants');

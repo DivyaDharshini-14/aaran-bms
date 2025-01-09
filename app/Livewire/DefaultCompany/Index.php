@@ -5,6 +5,7 @@ namespace App\Livewire\DefaultCompany;
 use Aaran\Master\Models\Company;
 use App\Models\DefaultCompany;
 //use App\Models\SoftVersion;
+use App\Models\SoftVersion;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
 

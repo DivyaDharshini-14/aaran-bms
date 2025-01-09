@@ -12,7 +12,6 @@ return new class extends Migration {
 
             Schema::create('contacts', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('ledger_id')->references('id')->on('ledgers');
                 $table->string('vname');
                 $table->string('mobile')->nullable();
                 $table->string('whatsapp')->nullable();
@@ -23,6 +22,7 @@ return new class extends Migration {
                 $table->decimal('opening_balance')->nullable();
                 $table->decimal('outstanding',12,2)->nullable();
                 $table->string('effective_from')->nullable();
+//                $table->foreignId('ledger_id')->nullable();
                 $table->string('gstin')->nullable();
                 $table->string('email')->nullable();
                 $table->string('active_id', 3)->nullable();
@@ -38,10 +38,10 @@ return new class extends Migration {
                 $table->string('address_type')->nullable();
                 $table->string('address_1')->nullable();
                 $table->string('address_2')->nullable();
-                $table->foreignId('city_id')->references('id')->on('commons');
-                $table->foreignId('state_id')->references('id')->on('commons');
-                $table->foreignId('pincode_id')->references('id')->on('commons');
-                $table->foreignId('country_id')->references('id')->on('commons');
+                $table->foreignId('city_id')->references('id')->on('cities');
+                $table->foreignId('state_id')->references('id')->on('states');
+                $table->foreignId('pincode_id')->references('id')->on('pincodes');
+                $table->foreignId('country_id')->references('id')->on('countries');
                 $table->timestamps();
             });
         }
@@ -49,8 +49,9 @@ return new class extends Migration {
 
     public function down(): void
     {
+        Schema::dropIfExists('contacts');
+
         Schema::dropIfExists('contact_details');
 
-        Schema::dropIfExists('contacts');
     }
 };
