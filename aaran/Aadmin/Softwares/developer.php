@@ -18,7 +18,7 @@ return [
         Customise::exportSales(),
         Customise::report(),
         Customise::logbooks(),
-        Customise::accounts(),
+        Customise::accountMaster(),
     ],
 
     'SalesEntry' => [

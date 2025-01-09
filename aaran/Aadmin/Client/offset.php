@@ -17,7 +17,7 @@ return [
 //        Customise::taskManager(),
 //        Customise::exportsales(),
         Customise::report(),
-        Customise::accounts(),
+        Customise::accountMaster(),
 //        Customise::logbooks(),
     ],
 

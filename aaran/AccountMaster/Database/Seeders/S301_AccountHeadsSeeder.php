@@ -11,6 +11,7 @@ class S301_AccountHeadsSeeder extends Seeder
     {
         foreach (self::vData() as $head) {
 
+            var_dump($head);
             AccountHeads::create([
                 'vname' => $head,
                 'description' => ucfirst($head),
@@ -23,7 +24,7 @@ class S301_AccountHeadsSeeder extends Seeder
         }
     }
 
-    private function vData()
+    private static function vData()
     {
         return [
             'CAPITAL ACCOUNT',

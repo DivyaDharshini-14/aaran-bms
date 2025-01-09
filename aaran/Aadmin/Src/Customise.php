@@ -166,14 +166,14 @@ class Customise
     #endregion
 
     #region[AccountMaster]
-    public static function hasAccounts(): bool
+    public static function hasAccountMaster(): bool
     {
-        return static::enabled(static::accounts());
+        return static::enabled(static::accountMaster());
     }
 
-    public static function accounts(): string
+    public static function accountMaster(): string
     {
-        return 'accounts';
+        return 'accountMaster';
     }
     #endregion
 
