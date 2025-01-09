@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Web\Home;
+namespace Aaran\Web\Livewire\home;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class Service extends Component
 {
     public function render()
     {
-        return view('livewire.web.home.service')->layout('layouts.web');
+        return view('web::home.service')->layout('layouts.web');
     }
 }

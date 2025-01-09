@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Livewire\Web\Home;
+namespace Aaran\Web\Livewire\home;
 
-use Aaran\Web\Models\Home;
 use Aaran\Web\Models\HomeSlide;
 use Livewire\Component;
 
@@ -16,7 +15,7 @@ class Index extends Component
     public function render()
     {
         $this->getData();
-        return view('livewire.web.home.index')->layout('layouts.web');
+        return view('web::home.index')->layout('layouts.web');
     }
 
 

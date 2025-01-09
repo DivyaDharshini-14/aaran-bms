@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Web\Home;
+namespace Aaran\Web\Livewire\home;
 
 use Aaran\Blog\Models\BlogTag;
 use Aaran\Blog\Models\Post;
@@ -346,7 +346,7 @@ class Blog extends Component
         $this->getBlogtagList();
 
         $this->getListForm->perPage = 6;
-        return view('livewire.web.home.blog')->layout('layouts.web')->with([
+        return view('web::home.blog')->layout('layouts.web')->with([
             'list' => $this->getListForm->getList(Post::class, function ($query) {
                 return $query->latest()->whereIN('visibility', session()->get('tenant_id') ? [0, 1] : [1])
                     ->when($this->tagfilter, function ($query, $tagfilter) {

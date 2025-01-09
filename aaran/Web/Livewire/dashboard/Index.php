@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Web\Dashboard;
+namespace Aaran\Web\Livewire\dashboard;
 
 use Aaran\Blog\Models\Post;
 use Aaran\Entries\Models\Purchase;
@@ -215,6 +215,6 @@ class Index extends Component
         $this->getContact();
         $this->getBlog();
 
-        return view('livewire.web.dashboard.index');
+        return view('web::dashboard.index');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Web\Dashboard;
+namespace Aaran\Web\Livewire\dashboard;
 
 use Aaran\Entries\Models\Sale;
 use Livewire\Component;
@@ -36,6 +36,6 @@ class SalesChart extends Component
 
     public function render()
     {
-        return view('livewire.web.dashboard.sales-chart')->layout('layouts.guest');
+        return view('web::dashboard.sales-chart')->layout('layouts.guest');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Web\Home;
+namespace Aaran\Web\Livewire\home;
 
 use Aaran\Web\Models\DemoRequest;
 use App\Livewire\Trait\CommonTraitNew;
@@ -103,6 +103,6 @@ class Contact extends Component
     #endregion
     public function render()
     {
-        return view('livewire.web.home.contact')->layout('layouts.web');
+        return view('web::home.contact')->layout('layouts.web');
     }
 }

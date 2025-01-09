@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Web\Dashboard;
+namespace Aaran\Web\Livewire\dashboard;
 
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
@@ -33,6 +33,6 @@ class Show extends Component
 
     public function render()
     {
-        return view('livewire.web.dashboard.show');
+        return view('web::dashboard.show');
     }
 }

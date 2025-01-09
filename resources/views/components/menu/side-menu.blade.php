@@ -31,7 +31,7 @@
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasTransaction())
-                <x-menu.sub.transaction/>
+{{--                <x-menu.sub.transaction/>--}}
 
             @endif
 
@@ -44,7 +44,7 @@
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasReport())
-                <x-menu.sub.reports/>
+{{--                <x-menu.sub.reports/>--}}
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasDemoData())
@@ -52,7 +52,7 @@
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasTaskManager())
-                <x-menu.sub.task/>
+{{--                <x-menu.sub.task/>--}}
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasLogbook())
@@ -60,7 +60,7 @@
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasAccounts())
-                <x-menu.sub.accounts/>
+{{--                <x-menu.sub.accounts/>--}}
             @endif
 
 

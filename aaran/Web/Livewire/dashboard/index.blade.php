@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     @if(session()->get('company_id') !== null)
-                        <livewire:web.dashboard.sales-chart />
+                        <livewire:dashboard::sales-chart />
                     @endif
 {{--                    <div class="pt-5">--}}
 {{--                        <div>--}}
