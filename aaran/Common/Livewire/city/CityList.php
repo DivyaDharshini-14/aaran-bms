@@ -16,6 +16,7 @@ class CityList extends Component
     public string $vname = '';
     public bool $active_id = true;
 
+
     #region[Validation]
     public function rules(): array
     {
@@ -96,6 +97,22 @@ class CityList extends Component
             ->paginate($this->perPage);
     }
     #endregion
+
+    #region[delete]
+    public function deleteFunction($id): void
+    {
+        if ($id) {
+            $city = City::find($id);
+            if ($city) {
+                $city->delete();
+                $message = "Deleted Successfully";
+                $this->dispatch('notify', ...['type' => 'success', 'content' => $message]);
+            }
+        }
+    }
+    #endregion
+
+
 
     #region[render]
     public function render()

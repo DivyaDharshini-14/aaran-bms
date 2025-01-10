@@ -2,7 +2,6 @@
 
 namespace Aaran\Common\Livewire\state;
 
-use Aaran\Common\Models\City;
 use Aaran\Common\Models\State;
 use App\Livewire\Trait\CommonTrait;
 use Illuminate\Support\Str;
@@ -100,6 +99,20 @@ class StateList extends Component
             ->where('active_id', '=', $this->activeRecord)
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
+    }
+    #endregion
+
+    #region[delete]
+    public function deleteFunction($id): void
+    {
+        if ($id) {
+            $city = State::find($id);
+            if ($city) {
+                $city->delete();
+                $message = "Deleted Successfully";
+                $this->dispatch('notify', ...['type' => 'success', 'content' => $message]);
+            }
+        }
     }
     #endregion
 

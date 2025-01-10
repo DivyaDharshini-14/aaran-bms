@@ -56,10 +56,6 @@ class CommonServiceProvider extends ServiceProvider
         Livewire::component('common::receipt-type-list', receipttype\ReceiptTypeList::class);
         Livewire::component('common::dispatch-list', dispatch\DispatchList::class);
 
-
-
-
-
     }
 
     protected function loadConfigs(): void

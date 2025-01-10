@@ -19,7 +19,7 @@
                     Name
                 </x-table.header-text>
 
-                <x-table.header-text> Date</x-table.header-text>
+                <x-table.header-text> Date </x-table.header-text>
 
                 <x-table.header-status/>
                 <x-table.header-action/>
@@ -46,7 +46,7 @@
         <!-- Create/ Edit Popup --------------------------------------------------------------------------------------->
 
         <x-forms.create :id="$vid">
-            <x-input.floating wire:model="vname" label="Size" />
+            <x-input.floating wire:model="vname" label="Name" style="margin-bottom: 1rem" />
             <x-input.model-date wire:model="vdate" label="Date"/>
         </x-forms.create>
 

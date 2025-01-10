@@ -18,7 +18,7 @@
 {{--            <x-button.danger wire:click.prevent="trashData">Delete</x-button.danger>--}}
 
             <x-button.cancel-x wire:click.prevent="$set('showDeleteModal', false)" />
-            <x-button.danger-x wire:click.prevent="trashData" />
+            <x-button.danger-x wire:click.prevent="trashData($id)" />
         </div>
     </x-slot>
 </x-modal.confirmation>

@@ -2,7 +2,7 @@
 
 namespace Aaran\Common\Livewire\pincode;
 
-use Aaran\Common\Models\City;
+
 use Aaran\Common\Models\Pincode;
 use App\Livewire\Trait\CommonTrait;
 use Illuminate\Support\Str;
@@ -95,6 +95,20 @@ class PincodeList extends Component
             ->where('active_id', '=', $this->activeRecord)
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
+    }
+    #endregion
+
+    #region[delete]
+    public function deleteFunction($id): void
+    {
+        if ($id) {
+            $city = Pincode::find($id);
+            if ($city) {
+                $city->delete();
+                $message = "Deleted Successfully";
+                $this->dispatch('notify', ...['type' => 'success', 'content' => $message]);
+            }
+        }
     }
     #endregion
 

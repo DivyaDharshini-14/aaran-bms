@@ -44,8 +44,8 @@
 
         <!-- Create/ Edit Popup --------------------------------------------------------------------------------------->
 
-        <x-forms.create :id="$vid">
-            <x-input.floating wire:model="vname" label="Transport" />
+        <x-forms.create :id="$vid" >
+            <x-input.floating wire:model="vname" label="Transport" style="margin-bottom: 1rem" />
             <x-input.floating wire:model="vehicle_no" label="Vehicle No" />
         </x-forms.create>
 
