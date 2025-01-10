@@ -1460,7 +1460,7 @@ class Upsert extends Component
         $this->getShipping_address();
         $this->getStyleList();
         $this->getDespatchList();
-        return view('entries::exportSales.upsert');
+        return view('entries::sales.upsert');
     }
     #endregion
 }

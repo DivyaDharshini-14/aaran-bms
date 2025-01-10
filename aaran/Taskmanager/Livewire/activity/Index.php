@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\TaskManger\Activity;
+namespace Aaran\Taskmanager\Livewire\activity;
 
 use Aaran\Taskmanager\Models\Activities;
 use Aaran\Taskmanager\Models\Task;
@@ -170,7 +170,7 @@ class Index extends Component
     public function render()
     {
         $this->getTaskList();
-        return view('livewire.task-manger.activity.index')->with([
+        return view('taskmanager::activity.index')->with([
             'list' => $this->getListForm->getList(Activities::class),
             'users' => DB::table('users')->where('users.tenant_id', session()->get('tenant_id'))->get(),
 

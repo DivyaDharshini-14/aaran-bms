@@ -54,7 +54,7 @@ class Index extends Component
         $this->getExportSalesLog();
         $this->getListForm->searchField='invoice_no';
         $this->getListForm->sortField='invoice_no';
-        return view('entries::export-sales.index')->with([
+        return view('entries::exportSales.index')->with([
             'list'=>$this->getListForm->getList(ExportSale::class,function ($query){
                 return  $query->where('company_id','=',session()->get('company_id'))->where('acyear',session()->get('acyear'));
             }),
