@@ -44,6 +44,7 @@ class Upsert extends Component
     public $email = '';
     public $address_type;
     public $log;
+//    public $ledger_id;
     #endregion
 
     #region[rules]
@@ -623,6 +624,7 @@ class Upsert extends Component
             if ($this->vid == "") {
                 $this->validate($this->rules());
                 $obj = Contact::create([
+//                    'ledger_id' => $this->ledger_id ?: '125',
                     'vname' => Str::upper($this->vname),
                     'mobile' => $this->mobile,
                     'whatsapp' => $this->whatsapp,
@@ -747,6 +749,7 @@ class Upsert extends Component
             $this->effective_from = $obj->effective_from;
             $this->gstin = $obj->gstin;
             $this->email = $obj->email;
+//            $this->ledger_id = $obj->ledger_id ?: '125';
             $this->active_id = $obj->active_id;
 
             $data = DB::table('contact_details')

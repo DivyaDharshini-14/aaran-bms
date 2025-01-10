@@ -2,6 +2,10 @@
 
 namespace Aaran\Master\Livewire\company;
 
+use Aaran\Common\Models\City;
+use Aaran\Common\Models\Country;
+use Aaran\Common\Models\Pincode;
+use Aaran\Common\Models\State;
 use Aaran\Master\Models\Company;
 use Aaran\Common\Models\Common;
 use Aaran\Logbook\Models\Logbook;
@@ -604,13 +608,13 @@ class Index extends Component
             $this->email = $obj->email;
             $this->website = $obj->website;
             $this->city_id = $obj->city_id;
-            $this->city_name = $obj->city_id ? Common::find($obj->city_id)->vname : '';
+            $this->city_name = $obj->city_id ? City::find($obj->city_id)->vname : '';
             $this->state_id = $obj->state_id;
-            $this->state_name = $obj->state_id ? Common::find($obj->state_id)->vname : '';
+            $this->state_name = $obj->state_id ? State::find($obj->state_id)->vname : '';
             $this->pincode_id = $obj->pincode_id;
-            $this->pincode_name = $obj->pincode_id ? Common::find($obj->pincode_id)->vname : '';
+            $this->pincode_name = $obj->pincode_id ? Pincode::find($obj->pincode_id)->vname : '';
             $this->country_id=$obj->country_id;
-            $this->country_name = $obj->country_id ? Common::find($obj->country_id)->vname : '';
+            $this->country_name = $obj->country_id ? Country::find($obj->country_id)->vname : '';
             $this->bank = $obj->bank;
             $this->acc_no = $obj->acc_no;
             $this->ifsc_code = $obj->ifsc_code;

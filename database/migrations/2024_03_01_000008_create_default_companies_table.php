@@ -13,7 +13,7 @@ return new class extends Migration {
                 $table->id();
                 $table->foreignId('company_id')->nullable();
                 $table->unsignedBigInteger('tenant_id')->nullable();
-                $table->longText('acyear');
+                $table->integer('acyear');
             });
         }
     }

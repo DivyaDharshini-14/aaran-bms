@@ -4,9 +4,13 @@ namespace Aaran\Master\Models;
 
 use Aaran\Common\Models\City;
 use Aaran\Common\Models\Common;
+use Aaran\Common\Models\Pincode;
+use Aaran\Common\Models\State;
 use Aaran\Master\Database\Factories\CompanyFactory;
+use App\Models\Tenant;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Collection;
@@ -66,14 +70,27 @@ class Company extends Model
     {
         return City::find($id)->vname;
     }
+    public function state(): BelongsTo
+    {
+        return $this->belongsTo(State::class);
+    }
+
+    public function pincode(): BelongsTo
+    {
+        return $this->belongsTo(Pincode::class);
+    }
 
     protected static function newFactory(): CompanyFactory
     {
         return new CompanyFactory();
     }
 
-//    public function companyDetail():HasMany
-//    {
-//        return  $this->hasMany(CompanyDetail::class);
-//    }
+    public function companyDetail():HasMany
+    {
+        return  $this->hasMany(CompanyDetail::class);
+    }
+    public function tenant(): BelongsTo
+    {
+        return $this->belongsTo(Tenant::class);
+    }
 }
