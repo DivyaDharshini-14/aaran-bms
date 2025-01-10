@@ -21,8 +21,6 @@ use Aaran\Common\Livewire\receipttype; // Example
 use Aaran\Common\Livewire\dispatch; // Example
 
 
-
-
 class CommonServiceProvider extends ServiceProvider
 {
     protected string $moduleName = 'Common';
@@ -55,10 +53,6 @@ class CommonServiceProvider extends ServiceProvider
         Livewire::component('common::bank-list', bank\BankList::class);
         Livewire::component('common::receipt-type-list', receipttype\ReceiptTypeList::class);
         Livewire::component('common::dispatch-list', dispatch\DispatchList::class);
-
-
-
-
 
     }
 

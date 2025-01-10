@@ -2,13 +2,7 @@
 
 namespace Aaran\Common\Livewire\dispatch;
 
-use Aaran\Common\Models\Category;
-use Aaran\Common\Models\City;
-use Aaran\Common\Models\Colour;
-use Aaran\Common\Models\Country;
 use Aaran\Common\Models\Despatch;
-use Aaran\Common\Models\Hsncode;
-use Aaran\Common\Models\Pincode;
 use Aaran\Common\Models\Size;
 use App\Livewire\Trait\CommonTrait;
 use Illuminate\Support\Str;
@@ -102,10 +96,24 @@ class DispatchList extends Component
     #region[list]
     public function getList()
     {
-        return Size::search($this->searches)
+        return Despatch::search($this->searches)
             ->where('active_id', '=', $this->activeRecord)
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
+    }
+    #endregion
+
+    #region[delete]
+    public function deleteFunction($id): void
+    {
+        if ($id) {
+            $city = Despatch::find($id);
+            if ($city) {
+                $city->delete();
+                $message = "Deleted Successfully";
+                $this->dispatch('notify', ...['type' => 'success', 'content' => $message]);
+            }
+        }
     }
     #endregion
 

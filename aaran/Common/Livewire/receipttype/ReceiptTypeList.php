@@ -2,15 +2,8 @@
 
 namespace Aaran\Common\Livewire\receipttype;
 
-use Aaran\Common\Models\Bank;
-use Aaran\Common\Models\Category;
-use Aaran\Common\Models\City;
-use Aaran\Common\Models\Colour;
-use Aaran\Common\Models\Country;
-use Aaran\Common\Models\Hsncode;
-use Aaran\Common\Models\Pincode;
+
 use Aaran\Common\Models\ReceiptType;
-use Aaran\Common\Models\Size;
 use App\Livewire\Trait\CommonTrait;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
@@ -102,6 +95,20 @@ class ReceiptTypeList extends Component
             ->where('active_id', '=', $this->activeRecord)
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
+    }
+    #endregion
+
+    #region[delete]
+    public function deleteFunction($id): void
+    {
+        if ($id) {
+            $city = ReceiptType::find($id);
+            if ($city) {
+                $city->delete();
+                $message = "Deleted Successfully";
+                $this->dispatch('notify', ...['type' => 'success', 'content' => $message]);
+            }
+        }
     }
     #endregion
 
