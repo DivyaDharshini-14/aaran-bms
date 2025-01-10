@@ -12,7 +12,7 @@ return new class extends Migration {
 
             Schema::create('contacts', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('ledger_id')->references('id')->on('ledgers');
+//                $table->foreignId('ledger_id')->references('id')->on('ledgers');
                 $table->string('vname');
                 $table->string('mobile')->nullable();
                 $table->string('whatsapp')->nullable();
@@ -22,6 +22,9 @@ return new class extends Migration {
                 $table->string('gstin')->nullable();
                 $table->string('msme_no')->nullable();
                 $table->foreignId('msme_type_id')->nullable();
+                $table->decimal('opening_balance')->nullable();
+                $table->decimal('outstanding',12,2)->nullable();
+                $table->string('effective_from')->nullable();
                 $table->string('active_id', 3)->nullable();
                 $table->foreignId('user_id')->references('id')->on('users');
                 $table->foreignId('company_id')->references('id')->on('companies');

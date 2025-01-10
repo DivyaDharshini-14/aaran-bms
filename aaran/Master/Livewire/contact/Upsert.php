@@ -2,7 +2,11 @@
 
 namespace Aaran\Master\Livewire\contact;
 
+use Aaran\Common\Models\City;
 use Aaran\Common\Models\Common;
+use Aaran\Common\Models\Country;
+use Aaran\Common\Models\Pincode;
+use Aaran\Common\Models\State;
 use Aaran\Logbook\Models\Logbook;
 use Aaran\Master\Models\Contact;
 use Aaran\Master\Models\ContactDetail;
@@ -155,10 +159,9 @@ class Upsert extends Component
     }
     #endregion
 
-    #region[City]
-    #[validate]
-    public $city_name = '';
+    #region[city]
     public $city_id = '';
+    public $city_name = '';
     public Collection $cityCollection;
     public $highlightCity = 0;
     public $cityTyped = false;
@@ -181,17 +184,14 @@ class Upsert extends Component
         $this->highlightCity++;
     }
 
-    public function setCity($name, $id, $index=null): void
+    public function setCity($name, $id): void
     {
         $this->city_name = $name;
         $this->city_id = $id;
-        Arr::set($this->itemList[$index], 'city_name', $name);
-        Arr::set($this->itemList[$index], 'city_id', $id);
-
         $this->getCityList();
     }
 
-    public function enterCity($index): void
+    public function enterCity(): void
     {
         $obj = $this->cityCollection[$this->highlightCity] ?? null;
 
@@ -199,48 +199,28 @@ class Upsert extends Component
         $this->cityCollection = Collection::empty();
         $this->highlightCity = 0;
 
-        $this->city_name = $obj['vname'] ?? '';;
+        $this->city_name = $obj['vname'] ?? '';
         $this->city_id = $obj['id'] ?? '';
-        Arr::set($this->itemList[$index], 'city_name', $obj['vname']);
-        Arr::set($this->itemList[$index], 'city_id', $obj['id']);
-
     }
 
     #[On('refresh-city')]
-    public function refreshCity($v, $index): void
+    public function refreshCity($v): void
     {
         $this->city_id = $v['id'];
         $this->city_name = $v['name'];
-        Arr::set($this->itemList[$index], 'city_name', $v['name']);
-        Arr::set($this->itemList[$index], 'city_id', $v['id']);
-
         $this->cityTyped = false;
-
-    }
-
-    public function citySave($name, $index)
-    {
-        $obj = Common::create([
-            'label_id' => 2,
-            'vname' => $name,
-            'active_id' => '1'
-        ]);
-        $v = ['name' => $name, 'id' => $obj->id];
-        $this->refreshCity($v, $index);
     }
 
     public function getCityList(): void
     {
-        $this->cityCollection = $this->itemList[$this->openTab]['city_name']
-            ? Common::search(trim($this->itemList[$this->openTab]['city_name']))->where('label_id', '=', '2')->get()
-            : Common::where('label_id', '=', '2')->Orwhere('label_id', '=', '1')->get();
+        $this->cityCollection = $this->city_name ? City::search(trim($this->city_name))
+            ->get() : City::all();
     }
-    #endregion
+#endregion
 
-    #region[State]
-    #[validate]
-    public $state_name = '';
+    #region[state]
     public $state_id = '';
+    public $state_name = '';
     public Collection $stateCollection;
     public $highlightState = 0;
     public $stateTyped = false;
@@ -263,16 +243,14 @@ class Upsert extends Component
         $this->highlightState++;
     }
 
-    public function setState($name, $id, $index): void
+    public function setState($name, $id): void
     {
         $this->state_name = $name;
         $this->state_id = $id;
-        Arr::set($this->itemList[$index], 'state_name', $name);
-        Arr::set($this->itemList[$index], 'state_id', $id);
         $this->getStateList();
     }
 
-    public function enterState($index): void
+    public function enterState(): void
     {
         $obj = $this->stateCollection[$this->highlightState] ?? null;
 
@@ -282,8 +260,6 @@ class Upsert extends Component
 
         $this->state_name = $obj['vname'] ?? '';;
         $this->state_id = $obj['id'] ?? '';;
-        Arr::set($this->itemList[$index], 'state_name', $obj['vname']);
-        Arr::set($this->itemList[$index], 'state_id', $obj['id']);
     }
 
     #[On('refresh-state')]
@@ -291,32 +267,18 @@ class Upsert extends Component
     {
         $this->state_id = $v['id'];
         $this->state_name = $v['name'];
-        Arr::set($this->itemList[$v['index']], 'state_name', $v['name']);
-        Arr::set($this->itemList[$v['index']], 'state_id', $v['id']);
         $this->stateTyped = false;
-    }
 
-    public function stateSave($name, $index): void
-    {
-        $obj = Common::create([
-            'label_id' => 3,
-            'vname' => $name,
-            'active_id' => '1'
-        ]);
-        $v = ['name' => $name, 'id' => $obj->id, 'index' => $index];
-        $this->refreshState($v);
     }
 
     public function getStateList(): void
     {
-        $this->stateCollection = $this->itemList[$this->openTab]['state_name']
-            ? Common::search(trim($this->itemList[$this->openTab]['state_name']))->where('label_id', '=', '3')
-                ->get() : Common::where('label_id', '=', '3')->Orwhere('id', '=', '1')->get();
+        $this->stateCollection = $this->state_name ? State::search(trim($this->state_name))
+            ->get() : State::all();
     }
     #endregion
 
-    #region[Pincode]
-    #[validate]
+    #region[pin-code]
     public $pincode_id = '';
     public $pincode_name = '';
     public Collection $pincodeCollection;
@@ -341,7 +303,7 @@ class Upsert extends Component
         $this->highlightPincode++;
     }
 
-    public function enterPincode($index): void
+    public function enterPincode(): void
     {
         $obj = $this->pincodeCollection[$this->highlightPincode] ?? null;
 
@@ -351,16 +313,12 @@ class Upsert extends Component
 
         $this->pincode_name = $obj['vname'] ?? '';;
         $this->pincode_id = $obj['id'] ?? '';;
-        Arr::set($this->itemList[$index], 'pincode_name', $obj['vname']);
-        Arr::set($this->itemList[$index], 'pincode_id', $obj['id']);
     }
 
-    public function setPincode($name, $id, $index): void
+    public function setPincode($name, $id): void
     {
         $this->pincode_name = $name;
         $this->pincode_id = $id;
-        Arr::set($this->itemList[$index], 'pincode_name', $name);
-        Arr::set($this->itemList[$index], 'pincode_id', $id);
         $this->getPincodeList();
     }
 
@@ -369,35 +327,29 @@ class Upsert extends Component
     {
         $this->pincode_id = $v['id'];
         $this->pincode_name = $v['name'];
-        Arr::set($this->itemList[$v['index']], 'pincode_name', $v['name']);
-        Arr::set($this->itemList[$v['index']], 'pincode_id', $v['id']);
         $this->pincodeTyped = false;
     }
 
-    public function pincodeSave($name, $index)
+    public function pincodeSave($name)
     {
-        $obj = Common::create([
-            'label_id' => 4,
+        $obj = Pincode::create([
             'vname' => $name,
             'active_id' => '1'
         ]);
-        $v = ['name' => $name, 'id' => $obj->id,'index' => $index];
+        $v = ['name' => $name, 'id' => $obj->id];
         $this->refreshPincode($v);
     }
 
     public function getPincodeList(): void
     {
-        $this->pincodeCollection = $this->itemList[$this->openTab]['pincode_name']
-            ? Common::search(trim($this->itemList[$this->openTab]['pincode_name']))->where('label_id', '=', '4')
-                ->get() : Common::where('label_id', '=', '4')->Orwhere('id', '=', '1')->get();
+        $this->pincodeCollection = $this->pincode_name ? Pincode::search(trim($this->pincode_name))
+            ->get() : Pincode::all();
     }
-
     #endregion
 
-    #region[Country]
-    #[validate]
-    public $country_name = '';
+    #region[country]
     public $country_id = '';
+    public $country_name = '';
     public Collection $countryCollection;
     public $highlightCountry = 0;
     public $countryTyped = false;
@@ -420,7 +372,14 @@ class Upsert extends Component
         $this->highlightCountry++;
     }
 
-    public function enterCountry($index): void
+    public function setCountry($name, $id): void
+    {
+        $this->country_name = $name;
+        $this->country_id = $id;
+        $this->getCountryList();
+    }
+
+    public function enterCountry(): void
     {
         $obj = $this->countryCollection[$this->highlightCountry] ?? null;
 
@@ -428,50 +387,342 @@ class Upsert extends Component
         $this->countryCollection = Collection::empty();
         $this->highlightCountry = 0;
 
-        $this->country_name = $obj['vname'] ?? '';;
-        $this->country_id = $obj['id'] ?? '';;
-        Arr::set($this->itemList[$index], 'country_name', $obj['vname']);
-        Arr::set($this->itemList[$index], 'country_id', $obj['id']);
-    }
-
-    public function setCountry($name, $id, $index): void
-    {
-        $this->country_name = $name;
-        $this->country_id = $id;
-        Arr::set($this->itemList[$index], 'country_name', $name);
-        Arr::set($this->itemList[$index], 'country_id', $id);
-        $this->getcountryList();
+        $this->country_name = $obj['vname'] ?? '';
+        $this->country_id = $obj['id'] ?? '';
     }
 
     #[On('refresh-country')]
-    public function refreshCountry($v, $index): void
+    public function refreshCountry($v): void
     {
         $this->country_id = $v['id'];
         $this->country_name = $v['name'];
-        Arr::set($this->itemList[$index], 'country_name', $v['name']);
-        Arr::set($this->itemList[$index], 'country_id', $v['id']);
         $this->countryTyped = false;
-    }
-
-    public function countrySave($name, $index)
-    {
-        $obj = Common::create([
-            'label_id' => 5,
-            'vname' => $name,
-            'active_id' => '1'
-        ]);
-        $v = ['name' => $name, 'id' => $obj->id];
-        $this->refreshCountry($v, $index);
     }
 
     public function getCountryList(): void
     {
-        $this->countryCollection = $this->itemList[$this->openTab]['country_name']
-            ? Common::search(trim($this->itemList[$this->openTab]['country_name']))->where('label_id', '=', '5')
-                ->get() : Common::where('label_id', '=', '5')->Orwhere('id', '=', '1')->get();
+        $this->countryCollection = $this->country_name ? Country::search(trim($this->country_name))
+            ->get() : Country::all();
     }
+#endregion
 
-    #endregion
+//    #region[City]
+//    #[validate]
+//    public $city_name = '';
+//    public $city_id = '';
+//    public Collection $cityCollection;
+//    public $highlightCity = 0;
+//    public $cityTyped = false;
+//
+//    public function decrementCity(): void
+//    {
+//        if ($this->highlightCity === 0) {
+//            $this->highlightCity = count($this->cityCollection) - 1;
+//            return;
+//        }
+//        $this->highlightCity--;
+//    }
+//
+//    public function incrementCity(): void
+//    {
+//        if ($this->highlightCity === count($this->cityCollection) - 1) {
+//            $this->highlightCity = 0;
+//            return;
+//        }
+//        $this->highlightCity++;
+//    }
+//
+//    public function setCity($name, $id, $index=null): void
+//    {
+//        $this->city_name = $name;
+//        $this->city_id = $id;
+//        Arr::set($this->itemList[$index], 'city_name', $name);
+//        Arr::set($this->itemList[$index], 'city_id', $id);
+//
+//        $this->getCityList();
+//    }
+//
+//    public function enterCity($index): void
+//    {
+//        $obj = $this->cityCollection[$this->highlightCity] ?? null;
+//
+//        $this->city_name = '';
+//        $this->cityCollection = Collection::empty();
+//        $this->highlightCity = 0;
+//
+//        $this->city_name = $obj['vname'] ?? '';;
+//        $this->city_id = $obj['id'] ?? '';
+//        Arr::set($this->itemList[$index], 'city_name', $obj['vname']);
+//        Arr::set($this->itemList[$index], 'city_id', $obj['id']);
+//
+//    }
+//
+//    #[On('refresh-city')]
+//    public function refreshCity($v, $index): void
+//    {
+//        $this->city_id = $v['id'];
+//        $this->city_name = $v['name'];
+//        Arr::set($this->itemList[$index], 'city_name', $v['name']);
+//        Arr::set($this->itemList[$index], 'city_id', $v['id']);
+//
+//        $this->cityTyped = false;
+//
+//    }
+//
+//    public function citySave($name, $index)
+//    {
+//        $obj = Common::create([
+//            'label_id' => 2,
+//            'vname' => $name,
+//            'active_id' => '1'
+//        ]);
+//        $v = ['name' => $name, 'id' => $obj->id];
+//        $this->refreshCity($v, $index);
+//    }
+//
+//    public function getCityList(): void
+//    {
+//        $this->cityCollection = $this->itemList[$this->openTab]['city_name']
+//            ? Common::search(trim($this->itemList[$this->openTab]['city_name']))->where('label_id', '=', '2')->get()
+//            : Common::where('label_id', '=', '2')->Orwhere('label_id', '=', '1')->get();
+//    }
+//    #endregion
+//
+//    #region[State]
+//    #[validate]
+//    public $state_name = '';
+//    public $state_id = '';
+//    public Collection $stateCollection;
+//    public $highlightState = 0;
+//    public $stateTyped = false;
+//
+//    public function decrementState(): void
+//    {
+//        if ($this->highlightState === 0) {
+//            $this->highlightState = count($this->stateCollection) - 1;
+//            return;
+//        }
+//        $this->highlightState--;
+//    }
+//
+//    public function incrementState(): void
+//    {
+//        if ($this->highlightState === count($this->stateCollection) - 1) {
+//            $this->highlightState = 0;
+//            return;
+//        }
+//        $this->highlightState++;
+//    }
+//
+//    public function setState($name, $id, $index): void
+//    {
+//        $this->state_name = $name;
+//        $this->state_id = $id;
+//        Arr::set($this->itemList[$index], 'state_name', $name);
+//        Arr::set($this->itemList[$index], 'state_id', $id);
+//        $this->getStateList();
+//    }
+//
+//    public function enterState($index): void
+//    {
+//        $obj = $this->stateCollection[$this->highlightState] ?? null;
+//
+//        $this->state_name = '';
+//        $this->stateCollection = Collection::empty();
+//        $this->highlightState = 0;
+//
+//        $this->state_name = $obj['vname'] ?? '';;
+//        $this->state_id = $obj['id'] ?? '';;
+//        Arr::set($this->itemList[$index], 'state_name', $obj['vname']);
+//        Arr::set($this->itemList[$index], 'state_id', $obj['id']);
+//    }
+//
+//    #[On('refresh-state')]
+//    public function refreshState($v): void
+//    {
+//        $this->state_id = $v['id'];
+//        $this->state_name = $v['name'];
+//        Arr::set($this->itemList[$v['index']], 'state_name', $v['name']);
+//        Arr::set($this->itemList[$v['index']], 'state_id', $v['id']);
+//        $this->stateTyped = false;
+//    }
+//
+//    public function stateSave($name, $index): void
+//    {
+//        $obj = Common::create([
+//            'label_id' => 3,
+//            'vname' => $name,
+//            'active_id' => '1'
+//        ]);
+//        $v = ['name' => $name, 'id' => $obj->id, 'index' => $index];
+//        $this->refreshState($v);
+//    }
+//
+//    public function getStateList(): void
+//    {
+//        $this->stateCollection = $this->itemList[$this->openTab]['state_name']
+//            ? Common::search(trim($this->itemList[$this->openTab]['state_name']))->where('label_id', '=', '3')
+//                ->get() : Common::where('label_id', '=', '3')->Orwhere('id', '=', '1')->get();
+//    }
+//    #endregion
+//
+//    #region[Pincode]
+//    #[validate]
+//    public $pincode_id = '';
+//    public $pincode_name = '';
+//    public Collection $pincodeCollection;
+//    public $highlightPincode = 0;
+//    public $pincodeTyped = false;
+//
+//    public function decrementPincode(): void
+//    {
+//        if ($this->highlightPincode === 0) {
+//            $this->highlightPincode = count($this->pincodeCollection) - 1;
+//            return;
+//        }
+//        $this->highlightPincode--;
+//    }
+//
+//    public function incrementPincode(): void
+//    {
+//        if ($this->highlightPincode === count($this->pincodeCollection) - 1) {
+//            $this->highlightPincode = 0;
+//            return;
+//        }
+//        $this->highlightPincode++;
+//    }
+//
+//    public function enterPincode($index): void
+//    {
+//        $obj = $this->pincodeCollection[$this->highlightPincode] ?? null;
+//
+//        $this->pincode_name = '';
+//        $this->pincodeCollection = Collection::empty();
+//        $this->highlightPincode = 0;
+//
+//        $this->pincode_name = $obj['vname'] ?? '';;
+//        $this->pincode_id = $obj['id'] ?? '';;
+//        Arr::set($this->itemList[$index], 'pincode_name', $obj['vname']);
+//        Arr::set($this->itemList[$index], 'pincode_id', $obj['id']);
+//    }
+//
+//    public function setPincode($name, $id, $index): void
+//    {
+//        $this->pincode_name = $name;
+//        $this->pincode_id = $id;
+//        Arr::set($this->itemList[$index], 'pincode_name', $name);
+//        Arr::set($this->itemList[$index], 'pincode_id', $id);
+//        $this->getPincodeList();
+//    }
+//
+//    #[On('refresh-pincode')]
+//    public function refreshPincode($v): void
+//    {
+//        $this->pincode_id = $v['id'];
+//        $this->pincode_name = $v['name'];
+//        Arr::set($this->itemList[$v['index']], 'pincode_name', $v['name']);
+//        Arr::set($this->itemList[$v['index']], 'pincode_id', $v['id']);
+//        $this->pincodeTyped = false;
+//    }
+//
+//    public function pincodeSave($name, $index)
+//    {
+//        $obj = Common::create([
+//            'label_id' => 4,
+//            'vname' => $name,
+//            'active_id' => '1'
+//        ]);
+//        $v = ['name' => $name, 'id' => $obj->id,'index' => $index];
+//        $this->refreshPincode($v);
+//    }
+//
+//    public function getPincodeList(): void
+//    {
+//        $this->pincodeCollection = $this->itemList[$this->openTab]['pincode_name']
+//            ? Common::search(trim($this->itemList[$this->openTab]['pincode_name']))->where('label_id', '=', '4')
+//                ->get() : Common::where('label_id', '=', '4')->Orwhere('id', '=', '1')->get();
+//    }
+//
+//    #endregion
+//
+//    #region[Country]
+//    #[validate]
+//    public $country_name = '';
+//    public $country_id = '';
+//    public Collection $countryCollection;
+//    public $highlightCountry = 0;
+//    public $countryTyped = false;
+//
+//    public function decrementCountry(): void
+//    {
+//        if ($this->highlightCountry === 0) {
+//            $this->highlightCountry = count($this->countryCollection) - 1;
+//            return;
+//        }
+//        $this->highlightCountry--;
+//    }
+//
+//    public function incrementCountry(): void
+//    {
+//        if ($this->highlightCountry === count($this->countryCollection) - 1) {
+//            $this->highlightCountry = 0;
+//            return;
+//        }
+//        $this->highlightCountry++;
+//    }
+//
+//    public function enterCountry($index): void
+//    {
+//        $obj = $this->countryCollection[$this->highlightCountry] ?? null;
+//
+//        $this->country_name = '';
+//        $this->countryCollection = Collection::empty();
+//        $this->highlightCountry = 0;
+//
+//        $this->country_name = $obj['vname'] ?? '';;
+//        $this->country_id = $obj['id'] ?? '';;
+//        Arr::set($this->itemList[$index], 'country_name', $obj['vname']);
+//        Arr::set($this->itemList[$index], 'country_id', $obj['id']);
+//    }
+//
+//    public function setCountry($name, $id, $index): void
+//    {
+//        $this->country_name = $name;
+//        $this->country_id = $id;
+//        Arr::set($this->itemList[$index], 'country_name', $name);
+//        Arr::set($this->itemList[$index], 'country_id', $id);
+//        $this->getcountryList();
+//    }
+//
+//    #[On('refresh-country')]
+//    public function refreshCountry($v, $index): void
+//    {
+//        $this->country_id = $v['id'];
+//        $this->country_name = $v['name'];
+//        Arr::set($this->itemList[$index], 'country_name', $v['name']);
+//        Arr::set($this->itemList[$index], 'country_id', $v['id']);
+//        $this->countryTyped = false;
+//    }
+//
+//    public function countrySave($name, $index)
+//    {
+//        $obj = Common::create([
+//            'label_id' => 5,
+//            'vname' => $name,
+//            'active_id' => '1'
+//        ]);
+//        $v = ['name' => $name, 'id' => $obj->id];
+//        $this->refreshCountry($v, $index);
+//    }
+//
+//    public function getCountryList(): void
+//    {
+//        $this->countryCollection = $this->itemList[$this->openTab]['country_name']
+//            ? Common::search(trim($this->itemList[$this->openTab]['country_name']))->where('label_id', '=', '5')
+//                ->get() : Common::where('label_id', '=', '5')->Orwhere('id', '=', '1')->get();
+//    }
+//
+//    #endregion
 
     #region[Contact Type]
     public $contact_type_id = '';
@@ -787,7 +1038,7 @@ class Upsert extends Component
                 $this->secondaryAddress[] = $j + 1;
             }
         } else {
-            $this->effective_from = Carbon::now()->format('Y-m-d');
+//            $this->effective_from = Carbon::now()->format('Y-m-d');
             $this->active_id = true;
             $this->itemList[0] = [
                 "contact_detail_id" => 0,

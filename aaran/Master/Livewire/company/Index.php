@@ -34,7 +34,7 @@ class Index extends Component
     public string $display_name = '';
     public string $landline = '';
     public string $website = '';
-    public string $inv_pfx='';
+//    public string $inv_pfx='';
     public string $iec_no='';
     public $logo = '';
     public $old_logo = '';
@@ -97,6 +97,291 @@ class Index extends Component
     }
     #endregion
 
+//    #region[city]
+//    public $city_id = '';
+//    public $city_name = '';
+//    public Collection $cityCollection;
+//    public $highlightCity = 0;
+//    public $cityTyped = false;
+//
+//    public function decrementCity(): void
+//    {
+//        if ($this->highlightCity === 0) {
+//            $this->highlightCity = count($this->cityCollection) - 1;
+//            return;
+//        }
+//        $this->highlightCity--;
+//    }
+//
+//    public function incrementCity(): void
+//    {
+//        if ($this->highlightCity === count($this->cityCollection) - 1) {
+//            $this->highlightCity = 0;
+//            return;
+//        }
+//        $this->highlightCity++;
+//    }
+//
+//    public function setCity($name, $id): void
+//    {
+//        $this->city_name = $name;
+//        $this->city_id = $id;
+//        $this->getCityList();
+//    }
+//
+//    public function enterCity(): void
+//    {
+//        $obj = $this->cityCollection[$this->highlightCity] ?? null;
+//
+//        $this->city_name = '';
+//        $this->cityCollection = Collection::empty();
+//        $this->highlightCity = 0;
+//
+//        $this->city_name = $obj['vname'] ?? '';;
+//        $this->city_id = $obj['id'] ?? '';;
+//    }
+//
+//    #[On('refresh-city')]
+//    public function refreshCity($v): void
+//    {
+//        $this->city_id = $v['id'];
+//        $this->city_name = $v['name'];
+//        $this->cityTyped = false;
+//
+//    }
+//
+//    public function citySave($name)
+//    {
+//        $obj = Common::create([
+//            'label_id' => 2,
+//            'vname' => $name,
+//            'active_id' => '1'
+//        ]);
+//        $v = ['name' => $name, 'id' => $obj->id];
+//        $this->refreshCity($v);
+//    }
+//
+//    public function getCityList(): void
+//    {
+//        $this->cityCollection = $this->city_name ?
+//            Common::search(trim($this->city_name))->where('label_id', '=', '2')->get() :
+//            Common::where('label_id', '=', '2')->Orwhere('label_id', '=', '1')->get();
+//    }
+//    #endregion
+//
+//    #region[state]
+//    public $state_id = '';
+//    public $state_name = '';
+//    public Collection $stateCollection;
+//    public $highlightState = 0;
+//    public $stateTyped = false;
+//
+//    public function decrementState(): void
+//    {
+//        if ($this->highlightState === 0) {
+//            $this->highlightState = count($this->stateCollection) - 1;
+//            return;
+//        }
+//        $this->highlightState--;
+//    }
+//
+//    public function incrementState(): void
+//    {
+//        if ($this->highlightState === count($this->stateCollection) - 1) {
+//            $this->highlightState = 0;
+//            return;
+//        }
+//        $this->highlightState++;
+//    }
+//
+//    public function setState($name, $id): void
+//    {
+//        $this->state_name = $name;
+//        $this->state_id = $id;
+//        $this->getStateList();
+//    }
+//
+//    public function enterState(): void
+//    {
+//        $obj = $this->stateCollection[$this->highlightState] ?? null;
+//
+//        $this->state_name = '';
+//        $this->stateCollection = Collection::empty();
+//        $this->highlightState = 0;
+//
+//        $this->state_name = $obj['vname'] ?? '';;
+//        $this->state_id = $obj['id'] ?? '';;
+//    }
+//
+//    #[On('refresh-state')]
+//    public function refreshState($v): void
+//    {
+//        $this->state_id = $v['id'];
+//        $this->state_name = $v['name'];
+//        $this->stateTyped = false;
+//
+//    }
+//
+//    public function stateSave($name): void
+//    {
+//        $obj = Common::create([
+//            'label_id' => 3,
+//            'vname' => $name,
+//            'active_id' => '1'
+//        ]);
+//        $v = ['name' => $name, 'id' => $obj->id];
+//        $this->refreshState($v);
+//    }
+//
+//    public function getStateList(): void
+//    {
+//        $this->stateCollection = $this->state_name ? Common::search(trim($this->state_name))->where('label_id', '=', 3)
+//            ->get() : Common::where('label_id', '=', 3)->Orwhere('label_id', '=', '1')->get();
+//    }
+//    #endregion
+//
+//    #region[pin-code]
+//    public $pincode_id = '';
+//    public $pincode_name = '';
+//    public Collection $pincodeCollection;
+//    public $highlightPincode = 0;
+//    public $pincodeTyped = false;
+//
+//    public function decrementPincode(): void
+//    {
+//        if ($this->highlightPincode === 0) {
+//            $this->highlightPincode = count($this->pincodeCollection) - 1;
+//            return;
+//        }
+//        $this->highlightPincode--;
+//    }
+//
+//    public function incrementPincode(): void
+//    {
+//        if ($this->highlightPincode === count($this->pincodeCollection) - 1) {
+//            $this->highlightPincode = 0;
+//            return;
+//        }
+//        $this->highlightPincode++;
+//    }
+//
+//    public function enterPincode(): void
+//    {
+//        $obj = $this->pincodeCollection[$this->highlightPincode] ?? null;
+//
+//        $this->pincode_name = '';
+//        $this->pincodeCollection = Collection::empty();
+//        $this->highlightPincode = 0;
+//
+//        $this->pincode_name = $obj['vname'] ?? '';;
+//        $this->pincode_id = $obj['id'] ?? '';;
+//    }
+//
+//    public function setPincode($name, $id): void
+//    {
+//        $this->pincode_name = $name;
+//        $this->pincode_id = $id;
+//        $this->getPincodeList();
+//    }
+//
+//    #[On('refresh-pincode')]
+//    public function refreshPincode($v): void
+//    {
+//        $this->pincode_id = $v['id'];
+//        $this->pincode_name = $v['name'];
+//        $this->pincodeTyped = false;
+//    }
+//
+//    public function pincodeSave($name)
+//    {
+//        $obj = Common::create([
+//            'label_id' => 4,
+//            'vname' => $name,
+//            'active_id' => '1'
+//        ]);
+//        $v = ['name' => $name, 'id' => $obj->id];
+//        $this->refreshPincode($v);
+//    }
+//
+//    public function getPincodeList(): void
+//    {
+//        $this->pincodeCollection = $this->pincode_name ? Common::search(trim($this->pincode_name))
+//            ->where('label_id', '=', '4')
+//            ->get() : Common::where('label_id', '=', '4')->Orwhere('label_id', '=', '1')->get();
+//    }
+//    #endregion
+//
+//    #region[country]
+//    public $country_id = '';
+//    public $country_name = '';
+//    public Collection $countryCollection;
+//    public $highlightCountry = 0;
+//    public $countryTyped = false;
+//
+//    public function decrementCountry(): void
+//    {
+//        if ($this->highlightCountry === 0) {
+//            $this->highlightCountry = count($this->countryCollection) - 1;
+//            return;
+//        }
+//        $this->highlightCountry--;
+//    }
+//
+//    public function incrementCountry(): void
+//    {
+//        if ($this->highlightCountry === count($this->countryCollection) - 1) {
+//            $this->highlightCountry = 0;
+//            return;
+//        }
+//        $this->highlightCountry++;
+//    }
+//
+//    public function setCountry($name, $id): void
+//    {
+//        $this->country_name = $name;
+//        $this->country_id = $id;
+//        $this->getCountryList();
+//    }
+//
+//    public function enterCountry(): void
+//    {
+//        $obj = $this->countryCollection[$this->highlightCountry] ?? null;
+//
+//        $this->country_name = '';
+//        $this->countryCollection = Collection::empty();
+//        $this->highlightCountry = 0;
+//
+//        $this->country_name = $obj['vname'] ?? '';
+//        $this->country_id = $obj['id'] ?? '';
+//    }
+//
+//    #[On('refresh-country')]
+//    public function refreshCountry($v): void
+//    {
+//        $this->country_id = $v['id'];
+//        $this->country_name = $v['name'];
+//        $this->countryTyped = false;
+//    }
+//
+//    public function countrySave($name)
+//    {
+//        $obj = Common::create([
+//            'label_id' => 5,
+//            'vname' => $name,
+//            'active_id' => '1'
+//        ]);
+//        $v = ['name' => $name, 'id' => $obj->id];
+//        $this->refreshCountry($v);
+//    }
+//
+//    public function getCountryList(): void
+//    {
+//        $this->countryCollection = $this->country_name ?
+//            Common::search(trim($this->country_name))->where('label_id', '=', '5')->get() :
+//            Common::where('label_id', '=', '5')->Orwhere('label_id', '=', '1')->get();
+//    }
+//#endregion
+
     #region[city]
     public $city_id = '';
     public $city_name = '';
@@ -137,8 +422,8 @@ class Index extends Component
         $this->cityCollection = Collection::empty();
         $this->highlightCity = 0;
 
-        $this->city_name = $obj['vname'] ?? '';;
-        $this->city_id = $obj['id'] ?? '';;
+        $this->city_name = $obj['vname'] ?? '';
+        $this->city_id = $obj['id'] ?? '';
     }
 
     #[On('refresh-city')]
@@ -147,27 +432,14 @@ class Index extends Component
         $this->city_id = $v['id'];
         $this->city_name = $v['name'];
         $this->cityTyped = false;
-
-    }
-
-    public function citySave($name)
-    {
-        $obj = Common::create([
-            'label_id' => 2,
-            'vname' => $name,
-            'active_id' => '1'
-        ]);
-        $v = ['name' => $name, 'id' => $obj->id];
-        $this->refreshCity($v);
     }
 
     public function getCityList(): void
     {
-        $this->cityCollection = $this->city_name ?
-            Common::search(trim($this->city_name))->where('label_id', '=', '2')->get() :
-            Common::where('label_id', '=', '2')->Orwhere('label_id', '=', '1')->get();
+        $this->cityCollection = $this->city_name ? City::search(trim($this->city_name))
+            ->get() : City::all();
     }
-    #endregion
+#endregion
 
     #region[state]
     public $state_id = '';
@@ -222,21 +494,10 @@ class Index extends Component
 
     }
 
-    public function stateSave($name): void
-    {
-        $obj = Common::create([
-            'label_id' => 3,
-            'vname' => $name,
-            'active_id' => '1'
-        ]);
-        $v = ['name' => $name, 'id' => $obj->id];
-        $this->refreshState($v);
-    }
-
     public function getStateList(): void
     {
-        $this->stateCollection = $this->state_name ? Common::search(trim($this->state_name))->where('label_id', '=', 3)
-            ->get() : Common::where('label_id', '=', 3)->Orwhere('label_id', '=', '1')->get();
+        $this->stateCollection = $this->state_name ? State::search(trim($this->state_name))
+            ->get() : State::all();
     }
     #endregion
 
@@ -294,8 +555,7 @@ class Index extends Component
 
     public function pincodeSave($name)
     {
-        $obj = Common::create([
-            'label_id' => 4,
+        $obj = Pincode::create([
             'vname' => $name,
             'active_id' => '1'
         ]);
@@ -305,9 +565,8 @@ class Index extends Component
 
     public function getPincodeList(): void
     {
-        $this->pincodeCollection = $this->pincode_name ? Common::search(trim($this->pincode_name))
-            ->where('label_id', '=', '4')
-            ->get() : Common::where('label_id', '=', '4')->Orwhere('label_id', '=', '1')->get();
+        $this->pincodeCollection = $this->pincode_name ? Pincode::search(trim($this->pincode_name))
+            ->get() : Pincode::all();
     }
     #endregion
 
@@ -363,22 +622,10 @@ class Index extends Component
         $this->countryTyped = false;
     }
 
-    public function countrySave($name)
-    {
-        $obj = Common::create([
-            'label_id' => 5,
-            'vname' => $name,
-            'active_id' => '1'
-        ]);
-        $v = ['name' => $name, 'id' => $obj->id];
-        $this->refreshCountry($v);
-    }
-
     public function getCountryList(): void
     {
-        $this->countryCollection = $this->country_name ?
-            Common::search(trim($this->country_name))->where('label_id', '=', '5')->get() :
-            Common::where('label_id', '=', '5')->Orwhere('label_id', '=', '1')->get();
+        $this->countryCollection = $this->country_name ? Country::search(trim($this->country_name))
+            ->get() : Country::all();
     }
 #endregion
 
@@ -481,7 +728,7 @@ class Index extends Component
                     'acc_no' => $this->acc_no,
                     'ifsc_code' => $this->ifsc_code,
                     'branch' => $this->branch,
-                    'inv_pfx' => $this->inv_pfx?:'-',
+//                    'inv_pfx' => $this->inv_pfx?:'-',
                     'iec_no' => $this->iec_no?:'-',
                     'user_id' => Auth::id(),
                     'tenant_id' => $this->tenant_id ?: '1',
@@ -511,7 +758,7 @@ class Index extends Component
                     'acc_no' => $this->acc_no,
                     'ifsc_code' => $this->ifsc_code,
                     'branch' => $this->branch,
-                    'inv_pfx' => $this->inv_pfx?:'-',
+//                    'inv_pfx' => $this->inv_pfx?:'-',
                     'iec_no' => $this->iec_no?:'-',
                     'user_id' => Auth::id(),
                     'tenant_id' => $this->tenant_id ?: '1',
@@ -552,7 +799,7 @@ class Index extends Component
         $this->country_id='';
         $this->country_name='';
         $this->iec_no='';
-        $this->inv_pfx='';
+//        $this->inv_pfx='';
         $this->bank = '';
         $this->acc_no = '';
         $this->ifsc_code = '';
@@ -619,7 +866,7 @@ class Index extends Component
             $this->acc_no = $obj->acc_no;
             $this->ifsc_code = $obj->ifsc_code;
             $this->branch = $obj->branch;
-            $this->inv_pfx=$obj->inv_pfx;
+//            $this->inv_pfx=$obj->inv_pfx;
             $this->iec_no=$obj->iec_no;
             $this->common->active_id = $obj->active_id;
             $this->old_logo = $obj->logo;

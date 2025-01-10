@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\TaskManger\Task;
+namespace Aaran\Taskmanager\Livewire\task;
 
 use Aaran\Taskmanager\Models\Task;
 use App\Enums\Status;
@@ -142,7 +142,7 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.task-manger.task.index')->with([
+        return view('taskmanager::task.index')->with([
             'list' => $this->getListForm->getList(Task::class),
             'users' => DB::table('users')->where('users.tenant_id', session()->get('tenant_id'))->get(),
         ]);

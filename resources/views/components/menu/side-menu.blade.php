@@ -31,7 +31,7 @@
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasTransaction())
-                {{--                <x-menu.sub.transaction/>--}}
+                <x-menu.sub.transaction/>
 
             @endif
 
@@ -52,7 +52,7 @@
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasTaskManager())
-                {{--                <x-menu.sub.task/>--}}
+                <x-menu.sub.task/>
             @endif
 
             @if(Aaran\Aadmin\Src\Customise::hasLogbook())

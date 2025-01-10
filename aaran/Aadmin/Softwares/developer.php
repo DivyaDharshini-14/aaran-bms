@@ -14,7 +14,7 @@ return [
         Customise::gstapi(),
         Customise::transaction(),
 //        Customise::demodata(),
-//        Customise::taskManager(),
+        Customise::taskManager(),
         Customise::exportSales(),
         Customise::report(),
         Customise::logbooks(),
