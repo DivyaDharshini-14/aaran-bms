@@ -21,8 +21,6 @@ use Aaran\Common\Livewire\receipttype; // Example
 use Aaran\Common\Livewire\dispatch; // Example
 
 
-
-
 class CommonServiceProvider extends ServiceProvider
 {
     protected string $moduleName = 'Common';
