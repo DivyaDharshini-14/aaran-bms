@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
 
         S301_AccountHeadsSeeder::run();
 
-//        S401_CompanySeeder::run();
+        S401_CompanySeeder::run();
 //        S403_ContactSeeder::run();
 //        S404_ProductSeeder::run();
 //        S405_OrderSeeder::run();
