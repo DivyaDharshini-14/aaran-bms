@@ -4,6 +4,7 @@ namespace Aaran\Common\Models;
 
 use Aaran\Blog\Models\BlogTag;
 use Aaran\Common\Database\Factories\CommonFactory;
+use Aaran\Master\Database\Factories\CompanyFactory;
 use Aaran\Master\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -29,9 +30,14 @@ class Common extends Model
         return self::find($id)->vname;
     }
 
-    protected static function newFactory(): CommonFactory
+//    protected static function newFactory(): CommonFactory
+//    {
+//        return new CommonFactory();
+//    }
+
+    protected static function newFactory(): CompanyFactory
     {
-        return new CommonFactory();
+        return new CompanyFactory();
     }
 
 }

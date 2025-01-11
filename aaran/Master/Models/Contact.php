@@ -2,6 +2,7 @@
 
 namespace Aaran\Master\Models;
 
+use Aaran\AccountMaster\Models\Ledger;
 use Aaran\Common\Models\Common;
 use Aaran\Master\Database\Factories\ContactFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -29,5 +30,20 @@ class Contact extends Model
     {
         return $this->belongsTo(Common::class);
     }
+
+    public function contact(): BelongsTo
+    {
+        return $this->belongsTo(Contact::class);
+    }
+
+    public function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+//    public function ledger(): BelongsTo
+//    {
+//        return $this->belongsTo(Ledger::class,'ledger_id','id','null');
+//    }
 
 }

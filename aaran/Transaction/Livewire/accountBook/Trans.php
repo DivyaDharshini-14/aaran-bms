@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Transaction\AccountBook;
+namespace Aaran\Transaction\Livewire\accountBook;
 
 use Aaran\Common\Models\Common;
 use Aaran\Master\Models\Contact;
@@ -789,7 +789,7 @@ class Trans extends Component
                 return $query->whereDate('vdate', '<=', $this->endDate);
             })
             ->get();
-        return view('livewire.transaction.account-book.trans')->with([
+        return view('transaction::accountBook.trans')->with([
             'list' => $list,
         ]);
     }
