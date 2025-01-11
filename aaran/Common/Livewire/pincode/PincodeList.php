@@ -102,9 +102,9 @@ class PincodeList extends Component
     public function deleteFunction($id): void
     {
         if ($id) {
-            $city = Pincode::find($id);
-            if ($city) {
-                $city->delete();
+            $obj = Pincode::find($id);
+            if ($obj) {
+                $obj->delete();
                 $message = "Deleted Successfully";
                 $this->dispatch('notify', ...['type' => 'success', 'content' => $message]);
             }

@@ -5,7 +5,7 @@ namespace Aaran\Common\Database\Seeders;
 use Aaran\Common\Models\Label;
 use Illuminate\Database\Seeder;
 
-class S101_LabelSeeder extends Seeder
+class S102_LabelSeeder extends Seeder
 {
     public static function run(): void
     {

@@ -101,9 +101,9 @@ class ColourList extends Component
     public function deleteFunction($id): void
     {
         if ($id) {
-            $city = Colour::find($id);
-            if ($city) {
-                $city->delete();
+            $obj = Colour::find($id);
+            if ($obj) {
+                $obj->delete();
                 $message = "Deleted Successfully";
                 $this->dispatch('notify', ...['type' => 'success', 'content' => $message]);
             }

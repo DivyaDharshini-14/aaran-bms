@@ -1,14 +1,15 @@
 <?php
 
-namespace Aaran\Common\Livewire\bank;
+namespace Aaran\Common\Livewire\unit;
 
-use Aaran\Common\Models\Bank;
+use Aaran\Common\Models\City;
+use Aaran\Common\Models\Unit;
 use App\Livewire\Trait\CommonTrait;
 use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class BankList extends Component
+class UnitList extends Component
 {
     use CommonTrait;
 
@@ -16,45 +17,46 @@ class BankList extends Component
     public string $vname = '';
     public bool $active_id = true;
 
+
     #region[Validation]
     public function rules(): array
     {
         return [
-            'vname' => 'required:banks,vname',
+            'vname' => 'required|unique:units,vname',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'vname.required' => 'The :attribute are missing.',
-            'vname.unique' => 'The :attribute is already created.',
+            'vname.required' => ':attribute is missing.',
+            'vname.unique' => 'This :attribute is already created.',
         ];
     }
 
     public function validationAttributes(): array
     {
         return [
-            'vname' => 'name',
+            'vname' => 'unit name',
         ];
     }
 
     #endregion[Validation]
 
-    #region[save]
+    #region[getSave]
     public function getSave(): void
     {
         $this->validate();
 
         if ($this->vid == "") {
-            Bank::create([
+            Unit::create([
                 'vname' => Str::ucfirst($this->vname),
                 'active_id' => $this->active_id,
             ]);
             $message = "Saved";
 
         } else {
-            $obj = Bank::find($this->vid);
+            $obj = Unit::find($this->vid);
             $obj->vname = Str::ucfirst($this->vname);
             $obj->active_id = $this->active_id;
             $obj->save();
@@ -75,11 +77,11 @@ class BankList extends Component
     }
     #endregion[Clear Fields]
 
-    #region[obj]
+    #region[getObj]
     public function getObj($id): void
     {
         if ($id) {
-            $obj = Bank::find($id);
+            $obj = Unit::find($id);
             $this->vid = $obj->id;
             $this->vname = $obj->vname;
             $this->active_id = $obj->active_id;
@@ -87,10 +89,10 @@ class BankList extends Component
     }
     #endregion
 
-    #region[list]
+    #region[getList]
     public function getList()
     {
-        return Bank::search($this->searches)
+        return Unit::search($this->searches)
             ->where('active_id', '=', $this->activeRecord)
             ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
             ->paginate($this->perPage);
@@ -101,7 +103,7 @@ class BankList extends Component
     public function deleteFunction($id): void
     {
         if ($id) {
-            $obj = Bank::find($id);
+            $obj = Unit::find($id);
             if ($obj) {
                 $obj->delete();
                 $message = "Deleted Successfully";
@@ -111,10 +113,12 @@ class BankList extends Component
     }
     #endregion
 
+
+
     #region[render]
     public function render()
     {
-        return view('common::bank.bank-list')->with([
+        return view('common::unit.unit-list')->with([
             'list' => $this->getList()
         ]);
     }

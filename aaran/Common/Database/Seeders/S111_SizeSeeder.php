@@ -4,7 +4,7 @@ namespace Aaran\Common\Database\Seeders;
 
 use Aaran\Common\Models\Size;
 use Illuminate\Database\Seeder;
-class S109_SizeSeeder extends Seeder
+class S111_SizeSeeder extends Seeder
 {
     public static function run(): void
     {

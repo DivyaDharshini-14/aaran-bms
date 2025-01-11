@@ -106,9 +106,9 @@ class StateList extends Component
     public function deleteFunction($id): void
     {
         if ($id) {
-            $city = State::find($id);
-            if ($city) {
-                $city->delete();
+            $obj = State::find($id);
+            if ($obj) {
+                $obj->delete();
                 $message = "Deleted Successfully";
                 $this->dispatch('notify', ...['type' => 'success', 'content' => $message]);
             }

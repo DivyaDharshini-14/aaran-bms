@@ -102,9 +102,9 @@ class CityList extends Component
     public function deleteFunction($id): void
     {
         if ($id) {
-            $city = City::find($id);
-            if ($city) {
-                $city->delete();
+            $obj = City::find($id);
+            if ($obj) {
+                $obj->delete();
                 $message = "Deleted Successfully";
                 $this->dispatch('notify', ...['type' => 'success', 'content' => $message]);
             }

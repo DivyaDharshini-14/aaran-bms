@@ -6,7 +6,7 @@ use Aaran\Common\Models\Transport;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class S111_TransportSeeder extends Seeder
+class S113_TransportSeeder extends Seeder
 {
 
     public static function run(): void

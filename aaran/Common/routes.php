@@ -11,6 +11,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/pin-codes', Aaran\Common\Livewire\pincode\PincodeList::class)->name('pin-codes');
     Route::get('/countries', Aaran\Common\Livewire\country\CountryList::class)->name('countries');
     Route::get('/hsn-codes', Aaran\Common\Livewire\hsncode\HsncodeList::class)->name('hsn-codes');
+    Route::get('/units', Aaran\Common\Livewire\unit\UnitList::class)->name('units');
     Route::get('/categories', Aaran\Common\Livewire\category\CategoryList::class)->name('categories');
     Route::get('/colours', Aaran\Common\Livewire\colour\ColourList::class)->name('colours');
     Route::get('/sizes', Aaran\Common\Livewire\size\SizeList::class)->name('sizes');
