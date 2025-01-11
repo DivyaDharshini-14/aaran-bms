@@ -215,6 +215,7 @@
                                 @error('country_name')
                                 <span class="text-red-400">{{$message}}</span>
                                 @enderror
+
                             </div>
                         </x-tabs.content>
 
@@ -284,7 +285,7 @@
                                 <x-input.floating wire:model="ifsc_code" label="IFSC Code" />
                                 <x-input.floating wire:model="bank" label="Bank" />
                                 <x-input.floating wire:model="branch" label="Branch" />
-                                <x-input.floating wire:model.live="inv_pfx" label="Invoice Prefix"/>
+{{--                                <x-input.floating wire:model.live="inv_pfx" label="Invoice Prefix"/>--}}
                                 <x-input.floating wire:model.live="iec_no" label="IEC No"/>
                             </div>
                         </x-tabs.content>

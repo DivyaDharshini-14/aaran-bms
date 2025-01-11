@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Transaction\AccountBook;
+namespace Aaran\Transaction\Livewire\accountBook;
 
 use Aaran\Common\Models\Common;
 use Aaran\Transaction\Models\AccountBook;
@@ -323,6 +323,8 @@ class Index extends Component
             ->where('account_books.active_id', '=', 1)
             ->get();
     }
+    #endregion
+
     #region[render]
 
     public function render()
@@ -330,7 +332,7 @@ class Index extends Component
         $this->getBankList();
         $this->getAccountTypeList();
 
-        return view('livewire.transaction.account-book.index')->with([
+        return view('transaction::accountBook.index')->with([
             'list' => $this->getListForm->getList(AccountBook::class, function ($query) {
                 if ($this->filter == 2) {
                     return $query -> where('trans_type_id', 109)->get();

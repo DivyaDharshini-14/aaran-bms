@@ -970,7 +970,7 @@ class Upsert extends Component
         $this->getProductList();
         $this->getColourList();
         $this->getSizeList();
-        return view('entries::export-sales.upsert');
+        return view('entries::exportSales.upsert');
     }
     #endregion
 }

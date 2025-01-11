@@ -28,7 +28,6 @@ class S401_CompanySeeder extends Seeder
             'acc_no'=>'D123456789101112',
             'ifsc_code'=>'DEMO1234',
             'branch'=>'DEMO BRANCH',
-            'inv_pfx'=>'',
             'iec_no'=>'-',
             'msme_no'=>'-',
             'msme_type_id' => '1',

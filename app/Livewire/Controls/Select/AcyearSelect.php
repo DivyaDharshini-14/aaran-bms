@@ -30,7 +30,7 @@ class AcyearSelect extends Component
 
     public function render()
     {
-        $this->years=Common::where('label_id',21)->orderBy('vname','asc')->get();
+//        $this->years=Common::where('label_id',21)->orderBy('vname','asc')->get();
         return view('livewire.controls.select.acyear-select');
     }
 }

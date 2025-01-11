@@ -59,7 +59,7 @@ class Index extends Component
         }
 //        $this->trans_type_id = 108;
         $this->account_books = AccountBook::with('transType')->get();
-        $this->opening_bal = AccountBook::find($id)->opening_balance;
+        $this->opening_bal = AccountBook::find($id)->opening_balance ?? 0;
     }
     #endregion
 
@@ -93,7 +93,7 @@ class Index extends Component
                     'purpose' => $this->purpose,
                     'order_id' => $this->order_id ?: '1',
                     'trans_type_id' => $this->trans_type_id ?: '108',
-                    'opening_bal' => $this->opening_bal,
+                    'opening_bal' => $this->opening_bal ?: 0,
                     'mode_id' => $this->mode_id ?: '111',
                     'vdate' => $this->vdate,
                     'receipttype_id' => $this->receipt_type_id ?: '85',
