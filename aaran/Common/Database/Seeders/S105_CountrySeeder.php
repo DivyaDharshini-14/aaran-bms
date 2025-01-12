@@ -2,17 +2,21 @@
 
 namespace Aaran\Common\Database\Seeders;
 
-use Aaran\Common\Models\Category;
+use Aaran\Common\Models\Country;
 use Illuminate\Database\Seeder;
 
-class S107_CategorySeeder extends Seeder
+class S105_CountrySeeder extends Seeder
 {
     public static function run(): void
     {
-        Category::create([
+        Country::create([
             'vname' => '-',
+            'active_id' => '1'
+        ]);
+
+        Country::create([
+            'vname' => 'India',
             'active_id' => '1'
         ]);
     }
 }
-

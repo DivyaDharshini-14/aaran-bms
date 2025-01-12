@@ -106,9 +106,9 @@ class TransportList extends Component
     public function deleteFunction($id): void
     {
         if ($id) {
-            $city = Transport::find($id);
-            if ($city) {
-                $city->delete();
+            $obj = Transport::find($id);
+            if ($obj) {
+                $obj->delete();
                 $message = "Deleted Successfully";
                 $this->dispatch('notify', ...['type' => 'success', 'content' => $message]);
             }

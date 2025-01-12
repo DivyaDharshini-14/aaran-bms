@@ -101,9 +101,9 @@ class CategoryList extends Component
     public function deleteFunction($id): void
     {
         if ($id) {
-            $city = Category::find($id);
-            if ($city) {
-                $city->delete();
+            $obj = Category::find($id);
+            if ($obj) {
+                $obj->delete();
                 $message = "Deleted Successfully";
                 $this->dispatch('notify', ...['type' => 'success', 'content' => $message]);
             }

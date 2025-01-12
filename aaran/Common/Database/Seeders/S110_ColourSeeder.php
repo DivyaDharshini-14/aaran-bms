@@ -5,7 +5,7 @@ namespace Aaran\Common\Database\Seeders;
 use Aaran\Common\Models\Colour;
 use Illuminate\Database\Seeder;
 
-class S108_ColourSeeder extends Seeder
+class S110_ColourSeeder extends Seeder
 {
     public static function run(): void
     {

@@ -5,7 +5,7 @@ namespace Aaran\Common\Database\Seeders;
 use Aaran\Common\Models\City;
 use Illuminate\Database\Seeder;
 
-class S101_CitySeeder extends Seeder
+class S103_CitySeeder extends Seeder
 {
     public static function run(): void
     {

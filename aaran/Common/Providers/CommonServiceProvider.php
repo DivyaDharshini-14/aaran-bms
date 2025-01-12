@@ -7,18 +7,20 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 
 use Aaran\Common\Livewire\city; // Example
-use Aaran\Common\Livewire\state; // Example
-use Aaran\Common\Livewire\pincode; // Example
-use Aaran\Common\Livewire\country; // Example
-use Aaran\Common\Livewire\hsncode; // Example
-use Aaran\Common\Livewire\category; // Example
-use Aaran\Common\Livewire\colour; // Example
-use Aaran\Common\Livewire\size; // Example
-use Aaran\Common\Livewire\department; // Example
-use Aaran\Common\Livewire\transport; // Example
-use Aaran\Common\Livewire\bank; // Example
-use Aaran\Common\Livewire\receipttype; // Example
-use Aaran\Common\Livewire\dispatch; // Example
+use Aaran\Common\Livewire\state;
+use Aaran\Common\Livewire\pincode;
+use Aaran\Common\Livewire\country;
+use Aaran\Common\Livewire\hsncode;
+use Aaran\Common\Livewire\unit;
+use Aaran\Common\Livewire\category;
+use Aaran\Common\Livewire\colour;
+use Aaran\Common\Livewire\size;
+use Aaran\Common\Livewire\department;
+use Aaran\Common\Livewire\transport;
+use Aaran\Common\Livewire\bank;
+use Aaran\Common\Livewire\receipttype;
+use Aaran\Common\Livewire\dispatch;
+
 
 
 class CommonServiceProvider extends ServiceProvider
@@ -45,6 +47,7 @@ class CommonServiceProvider extends ServiceProvider
         Livewire::component('common::pincode-list', pincode\PincodeList::class);
         Livewire::component('common::country-list', country\CountryList::class);
         Livewire::component('common::hsncode-list', hsncode\HsncodeList::class);
+        Livewire::component('common::unit-list', unit\UnitList::class);
         Livewire::component('common::category-list', category\CategoryList::class);
         Livewire::component('common::colour-list', colour\ColourList::class);
         Livewire::component('common::size-list', size\SizeList::class);

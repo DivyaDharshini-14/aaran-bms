@@ -2,30 +2,30 @@
 
 namespace Aaran\Common\Database\Seeders;
 
-use Aaran\Common\Models\Hsncode;
+use Aaran\Common\Models\Unit;
 use Illuminate\Database\Seeder;
 
-class S105_HsncodeSeeder extends Seeder
+class S108_UnitSeeder extends Seeder
 {
     public static function run(): void
     {
-        Hsncode::create([
+        Unit::create([
             'vname' => '-',
             'active_id' => '1'
         ]);
 
-        Hsncode::create([
-            'vname' => '6100',
+        Unit::create([
+            'vname' => 'KGS',
             'active_id' => '1'
         ]);
 
-        Hsncode::create([
-            'vname' => '1466',
+        Unit::create([
+            'vname' => 'GMS',
             'active_id' => '1'
         ]);
 
-        Hsncode::create([
-            'vname' => '2922',
+        Unit::create([
+            'vname' => 'LTR',
             'active_id' => '1'
         ]);
     }
