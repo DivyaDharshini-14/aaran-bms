@@ -3,7 +3,11 @@
 namespace Aaran\Master\Models;
 
 use Aaran\AccountMaster\Models\Ledger;
+use Aaran\Common\Models\City;
 use Aaran\Common\Models\Common;
+use Aaran\Common\Models\Country;
+use Aaran\Common\Models\Pincode;
+use Aaran\Common\Models\State;
 use Aaran\Master\Database\Factories\ContactFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -39,6 +43,31 @@ class Contact extends Model
     public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class);
+    }
+
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function state(): BelongsTo
+    {
+        return $this->belongsTo(State::class);
+    }
+
+    public function pincode(): BelongsTo
+    {
+        return $this->belongsTo(Pincode::class);
+    }
+
+    public function country(): BelongsTo
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function ledger(): BelongsTo
+    {
+        return $this->belongsTo(Ledger::class);
     }
 
 //    public function ledger(): BelongsTo

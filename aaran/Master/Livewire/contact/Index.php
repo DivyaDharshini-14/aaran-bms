@@ -47,13 +47,11 @@ class Index extends Component
         )
             ->join('commons as contact_type', 'contact_type.id', '=', 'contacts.contact_type_id')
             ->join('commons as msme_type', 'msme_type.id', '=', 'contacts.msme_type_id')
-
-            ->orWhere('contacts.contact_type_id','=','123')
-            ->orWhere('contacts.contact_type_id','=','124')
-            ->where('contacts.company_id',session()->get('company_id'))
-            ->where('contacts.active_id',$this->getListForm->activeRecord)
-
-            ->orderBy('contacts.id',$this->getListForm->sortAsc ? 'asc' : 'desc')
+            ->orWhere('contacts.contact_type_id', '=', '123')
+            ->orWhere('contacts.contact_type_id', '=', '124')
+            ->where('contacts.company_id', session()->get('company_id'))
+            ->where('contacts.active_id', $this->getListForm->activeRecord)
+            ->orderBy('contacts.id', $this->getListForm->sortAsc ? 'asc' : 'desc')
             ->paginate($this->getListForm->perPage);
     }
 
@@ -61,7 +59,8 @@ class Index extends Component
     {
 
         return view('master::contact.index')->with([
-            'list' => $this->getList(),
+            'list' => $this->getListForm->getList(Contact::class, function ($query) {
+            }),
         ]);
     }
 }

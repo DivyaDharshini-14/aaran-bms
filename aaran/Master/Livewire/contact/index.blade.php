@@ -54,9 +54,10 @@
 
 
                         <x-table.cell-text>
-                            <a href="{{route('contactReport',[$row->id])}}" class="{{$row->contact_type == 'Debtor'?:'text-orange-400'}}">
-                                {{$row->contact_type}}
-                            </a>
+{{--                            <a href="{{route('contactReport',[$row->id])}}" class="{{$row->contact_type == 'Debtor'?:'text-orange-400'}}">--}}
+{{--                                {{$row->contact_type}}--}}
+{{--                            </a>--}}
+                                {{ \App\Enums\ContactType::tryFrom($row->contactType)->getName() }}
                         </x-table.cell-text>
 
                         <x-table.cell-text><a

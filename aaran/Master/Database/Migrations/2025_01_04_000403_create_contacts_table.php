@@ -12,7 +12,7 @@ return new class extends Migration {
 
             Schema::create('contacts', function (Blueprint $table) {
                 $table->id();
-//                $table->foreignId('ledger_id')->references('id')->on('ledgers');
+                $table->foreignId('ledger_id')->references('id')->on('ledgers')->nullable();
                 $table->string('vname');
                 $table->string('mobile')->nullable();
                 $table->string('whatsapp')->nullable();

@@ -20,6 +20,7 @@
 
                         <!-- Left area -------------------------------------------------------------------------------->
 
+
                         <div class="sm:w-1/2 w-full flex flex-col gap-3 ">
 
                             <x-input.floating wire:model.live="vname" label="Contact Name"/>
@@ -34,6 +35,30 @@
                             <span class="text-red-400">{{$message}}</span>
                             @enderror
                             <x-input.floating wire:model="email" label="Email"/>
+
+                            <x-dropdown.wrapper label="Ledger" type="ledgerTyped">
+                                <div class="relative">
+                                    <x-dropdown.input label="Ledger" id="ledger_name"
+                                                      wire:model.live="ledger_name"
+                                                      wire:keydown.arrow-up="decrementLedger"
+                                                      wire:keydown.arrow-down="incrementLedger"
+                                                      wire:keydown.enter="enterLedger"/>
+                                    <x-dropdown.select>
+                                        @if($ledgerCollection)
+                                            @forelse ($ledgerCollection as $i => $ledger)
+                                                <x-dropdown.option highlight="{{$highlightLedger === $i}}"
+                                                                   wire:click.prevent="setLedger('{{$ledger->vname}}', '{{$ledger->id}}')">
+                                                    {{ $ledger->vname }}
+                                                </x-dropdown.option>
+                                            @empty
+                                                <x-dropdown.create
+                                                    wire:click.prevent="ledgers('{{$ledger_name}}')"
+                                                    label="Ledger"/>
+                                            @endforelse
+                                        @endif
+                                    </x-dropdown.select>
+                                </div>
+                            </x-dropdown.wrapper>
 
                         </div>
 
@@ -79,6 +104,7 @@
                                         </button>
                                     </li>
                                 </ul>
+
                                 <div class="w-full">
                                     <div x-show="openTab === 0" class="py-2">
                                         <div class="flex flex-col gap-3">
@@ -95,116 +121,106 @@
                                             @enderror
 
                                             <x-dropdown.wrapper label="City" type="cityTyped">
-                                                <div class="relative ">
+                                                <div class="relative">
                                                     <x-dropdown.input label="City" id="city_name"
-                                                                      wire:model.live="itemList.{{0}}.city_name"
+                                                                      wire:model.live="city_name"
                                                                       wire:keydown.arrow-up="decrementCity"
                                                                       wire:keydown.arrow-down="incrementCity"
-                                                                      wire:keydown.enter="enterCity({{0}})"/>
+                                                                      wire:keydown.enter="enterCity"/>
                                                     <x-dropdown.select>
                                                         @if($cityCollection)
                                                             @forelse ($cityCollection as $i => $city)
-                                                                <x-dropdown.option
-                                                                    highlight="{{$highlightCity === $i  }}"
-                                                                    wire:click.prevent="setCity('{{$city->vname}}','{{$city->id}}','{{0}}')">
+                                                                <x-dropdown.option highlight="{{$highlightCity === $i}}"
+                                                                                   wire:click.prevent="setCity('{{$city->vname}}', '{{$city->id}}')">
                                                                     {{ $city->vname }}
                                                                 </x-dropdown.option>
                                                             @empty
-                                                                <x-dropdown.new
-                                                                    wire:click.prevent="citySave('{{ $itemList[0]['city_name'] }}','{{0}}')"
+                                                                <x-dropdown.create
+                                                                    wire:click.prevent="citySave('{{$city_name}}')"
                                                                     label="City"/>
                                                             @endforelse
                                                         @endif
                                                     </x-dropdown.select>
                                                 </div>
                                             </x-dropdown.wrapper>
-                                            @error('itemList.0.city_name')
-                                            <span class="text-red-400"> {{$message}}</span>
-                                            @enderror
+
+                                            <!-- State ---------------------------------------------------------------------------->
 
                                             <x-dropdown.wrapper label="State" type="stateTyped">
                                                 <div class="relative ">
                                                     <x-dropdown.input label="State" id="state_name"
-                                                                      wire:model.live="itemList.{{0}}.state_name"
+                                                                      wire:model.live="state_name"
                                                                       wire:keydown.arrow-up="decrementState"
                                                                       wire:keydown.arrow-down="incrementState"
-                                                                      wire:keydown.enter="enterState({{0}})"/>
+                                                                      wire:keydown.enter="enterState"/>
                                                     <x-dropdown.select>
                                                         @if($stateCollection)
                                                             @forelse ($stateCollection as $i => $states)
                                                                 <x-dropdown.option
                                                                     highlight="{{$highlightState === $i  }}"
-                                                                    wire:click.prevent="setState('{{$states->vname}}','{{$states->id}}','{{0}}')">
+                                                                    wire:click.prevent="setState('{{$states->vname}}','{{$states->id}}')">
                                                                     {{ $states->vname }}
                                                                 </x-dropdown.option>
                                                             @empty
-                                                                <x-dropdown.new
-                                                                    wire:click.prevent="stateSave('{{ $itemList[0]['state_name'] }}','{{0}}')"
+                                                                <x-dropdown.create
+                                                                    wire:click.prevent="stateSave('{{ $state_name }}')"
                                                                     label="State"/>
                                                             @endforelse
                                                         @endif
                                                     </x-dropdown.select>
                                                 </div>
                                             </x-dropdown.wrapper>
-                                            @error('itemList.0.state_name')
-                                            <span class="text-red-400"> {{$message}}</span>
-                                            @enderror
 
                                             <x-dropdown.wrapper label="Pincode" type="pincodeTyped">
-                                                <div class="relative ">
+                                                <div class="relative">
                                                     <x-dropdown.input label="Pincode" id="pincode_name"
-                                                                      wire:model.live="itemList.{{0}}.pincode_name"
+                                                                      wire:model.live="pincode_name"
                                                                       wire:keydown.arrow-up="decrementPincode"
                                                                       wire:keydown.arrow-down="incrementPincode"
-                                                                      wire:keydown.enter="enterPincode({{0}})"/>
+                                                                      wire:keydown.enter="enterPincode"/>
                                                     <x-dropdown.select>
                                                         @if($pincodeCollection)
                                                             @forelse ($pincodeCollection as $i => $pincode)
                                                                 <x-dropdown.option
-                                                                    highlight="{{$highlightPincode === $i  }}"
-                                                                    wire:click.prevent="setPincode('{{$pincode->vname}}','{{$pincode->id}}','{{0}}')">
+                                                                    highlight="{{$highlightPincode === $i}}"
+                                                                    wire:click.prevent="setPincode('{{$pincode->vname}}', '{{$pincode->id}}')">
                                                                     {{ $pincode->vname }}
                                                                 </x-dropdown.option>
                                                             @empty
-                                                                <x-dropdown.new
-                                                                    wire:click.prevent="pincodeSave('{{$itemList[0]['pincode_name'] }}','{{0}}')"
+                                                                <x-dropdown.create
+                                                                    wire:click.prevent="pincodeSave('{{$pincode_name}}')"
                                                                     label="Pincode"/>
                                                             @endforelse
                                                         @endif
                                                     </x-dropdown.select>
                                                 </div>
                                             </x-dropdown.wrapper>
-                                            @error('itemList.0.pincode_name')
-                                            <span class="text-red-400"> {{$message}}</span>
-                                            @enderror
 
                                             <x-dropdown.wrapper label="Country" type="countryTyped">
-                                                <div class="relative ">
+                                                <div class="relative">
                                                     <x-dropdown.input label="Country" id="country_name"
-                                                                      wire:model.live="itemList.{{0}}.country_name"
+                                                                      wire:model.live="country_name"
                                                                       wire:keydown.arrow-up="decrementCountry"
                                                                       wire:keydown.arrow-down="incrementCountry"
-                                                                      wire:keydown.enter="enterCountry('{{0}}')"/>
+                                                                      wire:keydown.enter="enterCountry"/>
                                                     <x-dropdown.select>
                                                         @if($countryCollection)
                                                             @forelse ($countryCollection as $i => $country)
                                                                 <x-dropdown.option
-                                                                    highlight="{{$highlightCountry === $i  }}"
-                                                                    wire:click.prevent="setCountry('{{$country->vname}}','{{$country->id}}','{{0}}')">
+                                                                    highlight="{{$highlightCountry === $i}}"
+                                                                    wire:click.prevent="setCountry('{{$country->vname}}', '{{$country->id}}')">
                                                                     {{ $country->vname }}
                                                                 </x-dropdown.option>
                                                             @empty
-                                                                <x-dropdown.new
-                                                                    wire:click.prevent="countrySave('{{$itemList[0]['country_name']}}','{{0}}')"
+                                                                <x-dropdown.create
+                                                                    wire:click.prevent="countrySave('{{$country_name}}')"
                                                                     label="Country"/>
                                                             @endforelse
                                                         @endif
                                                     </x-dropdown.select>
                                                 </div>
                                             </x-dropdown.wrapper>
-                                            @error('itemList.0.country_name')
-                                            <span class="text-red-400"> {{$message}}</span>
-                                            @enderror
+
                                         </div>
 
                                     </div>
@@ -349,57 +365,29 @@
 
                     <div class="flex flex-col gap-3">
 
-                        <x-dropdown.wrapper label="Contact Type" type="contactTypeTyped">
-                            <div class="relative ">
-                                <x-dropdown.input label="Contact Type" id="contact_type_name"
-                                                  wire:model.live="contact_type_name"
-                                                  wire:keydown.arrow-up="decrementContactType"
-                                                  wire:keydown.arrow-down="incrementContactType"
-                                                  wire:keydown.enter="enterContactType"/>
-                                <x-dropdown.select>
-                                    @if($contactTypeCollection)
-                                        @forelse ($contactTypeCollection as $i => $contactType)
-                                            <x-dropdown.option highlight="{{$highlightContactType === $i  }}"
-                                                               wire:click.prevent="setContactType('{{$contactType->vname}}','{{$contactType->id}}')">
-                                                {{ $contactType->vname }}
-                                            </x-dropdown.option>
-                                        @empty
-                                            <x-dropdown.create
-                                                wire:click.prevent="contactTypeSave('{{$contact_type_name}}')"
-                                                label="Contact Type"/>
-                                        @endforelse
-                                    @endif
-                                </x-dropdown.select>
-                            </div>
-                        </x-dropdown.wrapper>
+                        <x-input.model-select wire:model="contact_type_id" :label="'Contact Type'">
+
+                            <option value="">Choose...</option>
+                            @foreach(App\Enums\ContactType::cases() as $contactType)
+                                <option value="{{$contactType->value}}">{{$contactType->getName()}}</option>
+                            @endforeach
+
+                        </x-input.model-select>
 
                         <x-input.floating wire:model="msme_no" label="MSME No"/>
 
-                        <x-dropdown.wrapper label="MSME Type" type="MsmeTypeTyped">
-                            <div class="relative ">
-                                <x-dropdown.input label="MSME Type" id="msme_type_name" wire:model.live="msme_type_name"
-                                                  wire:keydown.arrow-up="decrementMsmeType"
-                                                  wire:keydown.arrow-down="incrementMsmeType"
-                                                  wire:keydown.enter="enterMsmeType"/>
-                                <x-dropdown.select>
-                                    @if($msmeTypeCollection)
-                                        @forelse ($msmeTypeCollection as $i => $msmeType)
-                                            <x-dropdown.option highlight="{{$highlightMsmeType === $i  }}"
-                                                               wire:click.prevent="setMsmeType('{{$msmeType->vname}}','{{$msmeType->id}}')">
-                                                {{ $msmeType->vname }}
-                                            </x-dropdown.option>
-                                        @empty
-                                            <x-dropdown.create wire:click.prevent="msmeTypeSave('{{$msme_type_name}}')"
-                                                               label="Msme Type"/>
-                                        @endforelse
-                                    @endif
-                                </x-dropdown.select>
-                            </div>
-                        </x-dropdown.wrapper>
+                        <x-input.model-select wire:model="msme_type_id" :label="'MSME Type'">
+
+                            <option value="">Choose...</option>
+                            @foreach(App\Enums\MsmeType::cases() as $msmeType)
+                                <option value="{{$msmeType->value}}">{{$msmeType->getName()}}</option>
+                            @endforeach
+
+                        </x-input.model-select>
 
                         <x-input.floating wire:model="opening_balance" label="Opening Balance"/>
 
-{{--                        <x-input.floating wire:model="outstanding" label="Outstanding"/>--}}
+                        {{--                        <x-input.floating wire:model="outstanding" label="Outstanding"/>--}}
 
                         <x-input.model-date wire:model="effective_from" :label="'Opening Date'"/>
                     </div>
