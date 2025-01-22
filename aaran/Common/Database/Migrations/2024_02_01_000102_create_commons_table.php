@@ -8,6 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         if (Aaran\Aadmin\Src\Customise::hasCommon()) {
+
             Schema::create('commons', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('label_id')->references('id')->on('labels')->onDelete('cascade');
