@@ -12,8 +12,8 @@ return new class extends Migration {
             Schema::create('blog_tags', function (Blueprint $table) {
                 $table->id();
                 $table->string('vname')->unique();
-                $table->foreignId('blog_category_id')->references('id')->on('blog_categories')->onDelete('cascade');
-                $table->string('active_id')->nullable();
+                $table->foreignId('blog_category_id')->references('id')->on('blog_categories');
+                $table->tinyInteger('active_id')->nullable();
                 $table->timestamps();
             });
         }

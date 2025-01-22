@@ -12,7 +12,7 @@ return new class extends Migration
         if (Aaran\Aadmin\Src\Customise::hasExportSales()) {
             Schema::create('export_sale_items', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('export_sales_id')->references('id')->on('export_sales')->onDelete('cascade');
+                $table->foreignId('export_sales_id')->references('id')->on('export_sales');
                 $table->string('pkgs_type')->nullable();
                 $table->string('no_of_count')->nullable();
                 $table->foreignId('product_id')->references('id')->on('products');

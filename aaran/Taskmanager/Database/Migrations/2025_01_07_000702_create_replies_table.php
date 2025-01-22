@@ -12,12 +12,12 @@ return new class extends Migration {
 
             Schema::create('replies', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('task_id')->references('id')->on('tasks')->onDelete('cascade');
+                $table->foreignId('task_id')->references('id')->on('tasks');
                 $table->text('vname');
                 $table->string('verified')->nullable();
                 $table->string('verified_on')->nullable();
-                $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-                $table->string('active_id', 3)->nullable();
+                $table->foreignId('user_id')->references('id')->on('users');
+                $table->tinyInteger('active_id')->nullable();
                 $table->timestamps();
             });
         }

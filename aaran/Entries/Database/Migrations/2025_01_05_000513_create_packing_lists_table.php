@@ -11,7 +11,7 @@ return new class extends Migration
         if (Aaran\Aadmin\Src\Customise::hasExportSales()) {
             Schema::create('packing_lists', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('export_sales_id')->references('id')->on('export_sales')->onDelete('cascade');
+                $table->foreignId('export_sales_id')->references('id')->on('export_sales');
                 $table->foreignId('export_sales_item_id')->references('id')->on('export_sale_items');
                 $table->string('nos')->nullable();
                 $table->decimal('net_wt',10,3)->nullable();

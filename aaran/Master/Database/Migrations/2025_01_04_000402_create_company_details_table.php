@@ -12,7 +12,7 @@ return new class extends Migration
         if (Aaran\Aadmin\Src\Customise::hasMaster()) {
             Schema::create('company_details', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade');
+                $table->foreignId('company_id')->references('id')->on('companies');
                 $table->string('address_type')->nullable();
                 $table->string('address_1')->nullable();
                 $table->string('address_2')->nullable();

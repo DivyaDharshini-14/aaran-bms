@@ -14,7 +14,7 @@ return new class extends Migration {
                 $table->longText('desc')->nullable();
                 $table->longText('image')->nullable();
                 $table->foreignId('company_id')->references('id')->on('companies');
-                $table->string('active_id', 3)->nullable();
+                $table->tinyInteger('active_id')->nullable();
                 $table->timestamps();
             });
     }

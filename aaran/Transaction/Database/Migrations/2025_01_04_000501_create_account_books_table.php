@@ -11,7 +11,7 @@ return new class extends Migration
     {
         Schema::create('account_books', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('trans_type_id')->references('id')->on('commons')->onDelete('cascade');
+            $table->foreignId('trans_type_id')->references('id')->on('commons');
             $table->string('vname');
             $table->decimal('opening_balance', 13, 2)->default(0)->nullable();
             $table->date('opening_balance_date');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('branch')->nullable();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('company_id')->references('id')->on('companies');
-            $table->string('active_id',3)->nullable();
+            $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });
     }

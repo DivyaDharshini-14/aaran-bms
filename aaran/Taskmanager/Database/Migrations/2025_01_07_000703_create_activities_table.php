@@ -11,7 +11,7 @@ return new class extends Migration {
 
             Schema::create('activities', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('task_id')->references('id')->on('tasks')->onDelete('cascade');
+                $table->foreignId('task_id')->references('id')->on('tasks');
                 $table->string('cdate');
                 $table->text('vname');
                 $table->string('estimated')->nullable();
@@ -19,8 +19,8 @@ return new class extends Migration {
                 $table->string('start_on')->nullable();
                 $table->string('end_on')->nullable();
                 $table->text('remarks')->nullable();
-                $table->string('active_id', 3)->nullable();
-                $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+                $table->tinyInteger('active_id')->nullable();
+                $table->foreignId('user_id')->references('id')->on('users');
                 $table->timestamps();
             });
         }

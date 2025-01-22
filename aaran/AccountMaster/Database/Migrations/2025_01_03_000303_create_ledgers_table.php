@@ -14,12 +14,12 @@ return new class extends Migration {
                 $table->id();
                 $table->string('vname')->unique();
                 $table->longText('description')->nullable();
-                $table->foreignId('ledger_group_id')->references('id')->on('ledger_groups')->onDelete('cascade');
+                $table->foreignId('ledger_group_id')->references('id')->on('ledger_groups');
                 $table->string('opening')->nullable();
                 $table->string('opening_date')->nullable();
                 $table->string('current')->nullable();
-                $table->string('active_id', 3)->nullable();
-                $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+                $table->tinyInteger('active_id')->nullable();
+                $table->foreignId('user_id')->references('id')->on('users');
                 $table->timestamps();
             });
         }

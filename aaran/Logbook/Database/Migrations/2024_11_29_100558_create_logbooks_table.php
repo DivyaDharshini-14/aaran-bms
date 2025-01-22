@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('action');
             $table->longtext('description');
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->string('active_id',3)->nullable();
+            $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });
     }

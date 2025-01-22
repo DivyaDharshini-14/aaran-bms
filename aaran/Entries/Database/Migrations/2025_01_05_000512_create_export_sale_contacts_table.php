@@ -12,7 +12,7 @@ return new class extends Migration
         if (Aaran\Aadmin\Src\Customise::hasExportSales()) {
             Schema::create('export_sale_contacts', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('export_sales_id')->references('id')->on('export_sales')->onDelete('cascade');
+                $table->foreignId('export_sales_id')->references('id')->on('export_sales');
                 $table->foreignId('contact_id')->references('id')->on('contacts');
                 $table->timestamps();
             });

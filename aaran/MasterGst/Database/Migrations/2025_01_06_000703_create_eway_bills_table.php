@@ -12,7 +12,7 @@ return new class extends Migration
         if (Aaran\Aadmin\Src\Customise::hasGstApi()) {
             Schema::create('eway_bills', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('sales_id')->references('id')->on('sales')->onDelete('cascade');
+                $table->foreignId('sales_id')->references('id')->on('sales');
                 $table->longText('ewayBillNo');
                 $table->longText('ewayBillDate');
                 $table->longText('validUpto');

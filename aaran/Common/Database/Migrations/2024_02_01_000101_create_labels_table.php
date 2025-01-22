@@ -13,7 +13,7 @@ return new class extends Migration {
                 $table->id();
                 $table->string('vname')->unique();
                 $table->integer('cols')->nullable();
-                $table->smallInteger('active_id')->nullable();
+                $table->tinyInteger('active_id')->nullable();
             });
         }
     }

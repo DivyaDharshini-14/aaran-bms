@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('subject')->nullable();
             $table->longText('message')->nullable();
-            $table->string('active_id')->nullable();
+            $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });
     }

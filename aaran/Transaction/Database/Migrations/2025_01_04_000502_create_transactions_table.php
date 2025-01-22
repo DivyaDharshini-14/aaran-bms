@@ -43,7 +43,7 @@ return new class extends Migration {
             $table->string('verified_on')->nullable();
 
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->string('active_id', 10)->nullable();
+            $table->tinyInteger('active_id')->nullable();
 
             $table->timestamps();
         });

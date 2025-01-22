@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->longText('description');
             $table->string('link')->nullable();
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->string('active_id')->nullable();
+            $table->tinyInteger('active_id')->nullable();
             $table->longText('bg_image')->nullable();
             $table->longText('cont_image')->nullable();
             $table->timestamps();

@@ -25,7 +25,7 @@ return new class extends Migration {
                 $table->decimal('opening_balance')->nullable();
                 $table->decimal('outstanding',12,2)->nullable();
                 $table->string('effective_from')->nullable();
-                $table->string('active_id', 3)->nullable();
+                $table->tinyInteger('active_id')->nullable();
                 $table->foreignId('user_id')->references('id')->on('users');
                 $table->foreignId('company_id')->references('id')->on('companies');
                 $table->unique(['vname', 'gstin']);

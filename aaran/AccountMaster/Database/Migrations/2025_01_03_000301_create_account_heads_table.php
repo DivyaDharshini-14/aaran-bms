@@ -17,8 +17,8 @@ return new class extends Migration {
                 $table->string('opening')->nullable();
                 $table->string('opening_date')->nullable();
                 $table->string('current')->nullable();
-                $table->string('active_id', 3)->nullable();
-                $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+                $table->tinyInteger('active_id')->nullable();
+                $table->foreignId('user_id')->references('id')->on('users');
                 $table->timestamps();
             });
         }

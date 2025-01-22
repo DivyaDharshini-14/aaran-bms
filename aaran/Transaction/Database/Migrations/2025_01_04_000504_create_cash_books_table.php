@@ -16,7 +16,7 @@ return new class extends Migration
             $table->longText('notes')->nullable();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('company_id')->references('id')->on('companies');
-            $table->decimal('active_id',3)->nullable();
+            $table->tinyInteger('active_id')->nullable();
             $table->timestamps();
         });
     }

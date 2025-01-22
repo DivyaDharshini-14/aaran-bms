@@ -12,7 +12,7 @@ return new class extends Migration {
             Schema::create('departments', function (Blueprint $table) {
                 $table->id();
                 $table->string('vname')->unique();
-                $table->smallInteger('active_id')->nullable();
+                $table->tinyInteger('active_id')->nullable();
             });
         }
     }

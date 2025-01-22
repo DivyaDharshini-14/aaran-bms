@@ -32,7 +32,7 @@ return new class extends Migration {
                 $table->string('iec_no')->nullable();
                 $table->string('msme_no')->nullable();
                 $table->string('msme_type_id')->nullable();
-                $table->string('active_id', 3)->nullable();
+                $table->tinyInteger('active_id')->nullable();
                 $table->foreignId('user_id')->references('id')->on('users');
                 $table->foreignId('tenant_id')->references('id')->on('tenants');
                 $table->longText('logo')->nullable();

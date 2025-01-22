@@ -30,7 +30,7 @@ return new class extends Migration {
                 $table->decimal('additional', 11, 2)->nullable();
                 $table->decimal('round_off')->nullable();
                 $table->decimal('grand_total', 11, 2)->nullable();
-                $table->string('active_id', 10)->nullable();
+                $table->tinyInteger('active_id')->nullable();
                 $table->timestamps();
             });
 

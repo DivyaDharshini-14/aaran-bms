@@ -18,7 +18,7 @@ return new class extends Migration {
                 $table->foreignId('gstpercent_id')->references('id')->on('commons');
                 $table->decimal('initial_quantity',12,2)->nullable();
                 $table->decimal('initial_price',12,2)->nullable();
-                $table->string('active_id', 3)->nullable();
+                $table->tinyInteger('active_id')->nullable();
                 $table->foreignId('user_id')->references('id')->on('users');
                 $table->foreignId('company_id')->references('id')->on('companies');
                 $table->timestamps();
