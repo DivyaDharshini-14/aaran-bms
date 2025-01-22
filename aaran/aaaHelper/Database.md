@@ -1,28 +1,18 @@
 ## Working -sundar
 
-# Check 
-- Database table structure ✅
-- Module folder structure
-- route file structure 
-- menu 
-- Livewire class and view 
-- report
+# Database table structure 
 
-# refactor
-- components
-- loading data query (make easy to load)
+## core ✅
+- tenants ✅
+- role  ✅
+- user - added column tenants and role ✅
+- two_factor - add column example  ✅
+- cache - by laravel ✅
+- jobs - by laravel ✅
+- personal access - by laravel ✅
+- default_companies ✅
+- soft_versions ✅
 
-
-# maintenance
-- version for software
-- version for database
-- installing to clients
-- updating for clients
-- bug fixing for clients
-
-
-
-
-
-
-
+# Common
+- 
+- 
