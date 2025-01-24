@@ -40,6 +40,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 //    Route::get('/gstReport/print/{month?}/{year?}', App\Http\Controllers\Report\Sales\GstReportController::class)->name('gstReport.print');
 //    Route::get('/summary/print/{year?}', App\Http\Controllers\Report\Sales\SummaryController::class)->name('summary.print');
 
-    Route::get('/contactReport/{id}/{month?}/{year?}', App\Livewire\Reports\contact\PartyReport::class)->name('contactReport');
-    Route::get('/invReport/{id}/{month?}/{year?}', App\Livewire\Reports\contact\ContactReport::class)->name('invReport');
+    Route::get('/contactReport/{id}/{month?}/{year?}', App\Livewire\reports\contact\PartyReport::class)->name('contactReport');
+    Route::get('/invReport/{id}/{month?}/{year?}', App\Livewire\reports\contact\ContactReport::class)->name('invReport');
 });
