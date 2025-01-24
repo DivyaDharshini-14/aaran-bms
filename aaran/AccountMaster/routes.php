@@ -8,6 +8,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('ledgerGroups', Aaran\AccountMaster\Livewire\ledgerGroup\Index::class)->name('ledgerGroups');
 
-    Route::get('ledgers', Aaran\AccountMaster\Livewire\Ledger\Index::class)->name('ledgers');
+    Route::get('ledgers', Aaran\AccountMaster\Livewire\ledger\Index::class)->name('ledgers');
 
 });
