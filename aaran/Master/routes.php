@@ -12,7 +12,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/contacts/{id}/upsert', Aaran\Master\Livewire\contact\Upsert::class)->name('contacts.upsert');
     Route::get('/contactReport/print/{party}/{start_date?}/{end_date?}', App\Http\Controllers\Report\Contact\PartyReportController::class)->name('contactReport.print');
 
-    Route::get('/products', Aaran\Master\Livewire\Product\Index::class)->name('products');
-    Route::get('/orders', Aaran\Master\Livewire\Orders\Index::class)->name('orders');
-    Route::get('/styles', Aaran\Master\Livewire\Style\Index::class)->name('styles');
+    Route::get('/products', Aaran\Master\Livewire\product\Index::class)->name('products');
+    Route::get('/orders', Aaran\Master\Livewire\orders\Index::class)->name('orders');
+    Route::get('/styles', Aaran\Master\Livewire\style\Index::class)->name('styles');
 });
