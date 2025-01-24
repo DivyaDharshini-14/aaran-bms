@@ -631,7 +631,7 @@ class ContactModel extends Component
             $ledger = Ledger::create([
                 'vname' => Str::upper($this->vname),
                 'description' => $this->vname,
-                'ledger_group_id' => '1',
+                'ledger_group_id' => '10',
                 'opening' => '0',
                 'opening_date' => '',
                 'current' => '0',

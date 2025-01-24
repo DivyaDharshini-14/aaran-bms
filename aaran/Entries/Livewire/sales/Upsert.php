@@ -936,7 +936,7 @@ class Upsert extends Component
                     'billing_id' => $this->billing_id ?: ContactDetail::getId($this->contact_id),
                     'shipping_id' => $this->shipping_id ?: ContactDetail::getId($this->contact_id),
                     'style_id' => $this->style_id ?: 1,
-                    'despatch_id' => $this->despatch_id ?: 31,
+                    'despatch_id' => $this->despatch_id ?: 1,
                     'job_no' => $this->job_no,
                     'sales_type' => $this->sales_type,
                     'transport_id' => $this->transport_id ?: 1,
@@ -1099,8 +1099,8 @@ class Upsert extends Component
                 $changesMessage = implode(' , ', $changes);
                 $newItemsMessage = !empty($newItems) ? implode('; ', $newItems) : 'No new items created';
 
-                $this->common->logEntry($this->invoice_no,'Sales', 'update',
-                    "The Sales entry has been updated for {$this->contact_name}. Changes: {$changesMessage} . New Items: {$newItemsMessage}") ;
+                $this->common->logEntry($this->invoice_no, 'Sales', 'update',
+                    "The Sales entry has been updated for {$this->contact_name}. Changes: {$changesMessage} . New Items: {$newItemsMessage}");
                 $this->contactUpdate();
                 $message = "Updated";
             }
