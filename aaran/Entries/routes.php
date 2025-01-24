@@ -25,12 +25,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('transactions/{id}', Aaran\Entries\Livewire\payment\Index::class)->name('transactions');
 //    Route::get('transactions/{id}/print', App\Http\Controllers\transaction\PaymentController::class)->name('transactions.print');
 
-    Route::get('/receivables', App\Livewire\Reports\statement\Receivable::class)->name('receivables');
-    Route::get('/payables', App\Livewire\Reports\statement\Payable::class)->name('payables');
-    Route::get('/payables-report/{id}', App\Livewire\Reports\statement\PayablesReport::class)->name('payables-report');
-    Route::get('/receivables-report/{id}', App\Livewire\Reports\statement\ReceivablesReport::class)->name('receivables-report');
-    Route::get('/salesMonthly', App\Livewire\Reports\sales\MonthlyReport::class)->name('salesMonthly');
-    Route::get('/gstReport', App\Livewire\Reports\sales\GstReport::class)->name('gstReport');
+    Route::get('/receivables', App\Livewire\reports\statement\Receivable::class)->name('receivables');
+    Route::get('/payables', App\Livewire\reports\statement\Payable::class)->name('payables');
+    Route::get('/payables-report/{id}', App\Livewire\reports\statement\PayablesReport::class)->name('payables-report');
+    Route::get('/receivables-report/{id}', App\Livewire\reports\statement\ReceivablesReport::class)->name('receivables-report');
+    Route::get('/salesMonthly', App\Livewire\reports\sales\MonthlyReport::class)->name('salesMonthly');
+    Route::get('/gstReport', App\Livewire\reports\sales\GstReport::class)->name('gstReport');
 
 //    Route::get('/receivables/print/{party}/{start_date?}/{end_date?}', App\Http\Controllers\Report\ReceivablesController::class)->name('receivables.print');
 //    Route::get('/payables/print/{party}/{start_date?}/{end_date?}', App\Http\Controllers\Report\PayablesController::class)->name('payables.print');
