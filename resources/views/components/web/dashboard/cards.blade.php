@@ -75,7 +75,9 @@
                 <div class="text-[#F5B849]">{{$transactions['month_receivable']}}</div>
             </div>
             <div>
-                <a href="{{route('receivables')}}" class="text-[#F5B849] text-sm hover:bg-[#fef6e7] px-3 py-1 rounded-md font-semibold inline-flex items-center gap-x-2">
+                <a
+{{--                    href="{{route('receivables')}}"--}}
+                   class="text-[#F5B849] text-sm hover:bg-[#fef6e7] px-3 py-1 rounded-md font-semibold inline-flex items-center gap-x-2">
                     <span>
                         View All
                     </span>
