@@ -121,7 +121,7 @@ class Upsert extends Component
             'contact_name' => 'party name',
             'transport_name' => 'transport name',
             'distance' => 'distance ',
-            'Vehno' => 'Vechile no',
+            'Vehno' => 'Vehicle no',
         ];
     }
     #endregion

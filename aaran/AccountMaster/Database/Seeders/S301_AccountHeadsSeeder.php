@@ -12,8 +12,9 @@ class S301_AccountHeadsSeeder extends Seeder
         foreach (self::vData() as $head) {
 
             AccountHeads::create([
-                'vname' => $head,
-                'description' => ucfirst($head),
+                'id' => $head[0],
+                'vname' => $head[1],
+                'description' => ucfirst($head[1]),
                 'opening' => '0',
                 'opening_date' => '2024-04-01',
                 'current' => '0',
@@ -26,18 +27,22 @@ class S301_AccountHeadsSeeder extends Seeder
     private static function vData()
     {
         return [
-            'CAPITAL ACCOUNT',
-            'CURRENT ASSETS',
-            'CURRENT LIABILITIES',
-            'DIRECT EXPENSE',
-            'INDIRECT EXPENSE',
-            'INDIRECT INCOMES',
-            'INVESTMENTS',
-            'LOANS AND LIABILITIES',
-            'PURCHASES ACCOUNT',
-            'SALES ACCOUNT',
-            'SUSPENSE ACCOUNT',
+            ['1', 'PRIMARY'],
+            ['2', 'BRANCH-DIVISION'],
+            ['3', 'CAPITAL ACCOUNT'],
+            ['4', 'CURRENT ASSETS'],
+            ['5', 'CURRENT LIABILITIES'],
+            ['6', 'DIRECT EXPENSE'],
+            ['7', 'DIRECT INCOME'],
+            ['8', 'FIXED ASSETS'],
+            ['9', 'INDIRECT EXPENSE'],
+            ['10', 'INDIRECT INCOMES'],
+            ['11', 'INVESTMENTS'],
+            ['12', 'LOANS AND LIABILITIES'],
+            ['13', 'MISC EXPENSE'],
+            ['14', 'PURCHASES ACCOUNT'],
+            ['15', 'SALES ACCOUNT'],
+            ['16', 'SUSPENSE ACCOUNT'],
         ];
     }
-
 }

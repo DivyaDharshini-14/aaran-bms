@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Controls\Model;
 
+use Aaran\AccountMaster\Models\Ledger;
 use Aaran\Common\Models\Common;
 use Aaran\Master\Models\Contact;
 use Aaran\Master\Models\ContactDetail;
@@ -626,20 +627,34 @@ class ContactModel extends Component
 
             $this->validate($this->rules());
 
+
+            $ledger = Ledger::create([
+                'vname' => Str::upper($this->vname),
+                'description' => $this->vname,
+                'ledger_group_id' => '1',
+                'opening' => '0',
+                'opening_date' => '',
+                'current' => '0',
+                'active_id' => '1',
+                'user_id' => Auth::id()
+            ]);
+
+
             $obj = Contact::create([
+                'ledger_id' => $ledger->id,
                 'vname' => Str::upper($this->vname),
                 'mobile' => $this->mobile,
                 'whatsapp' => $this->whatsapp,
                 'contact_person' => $this->contact_person,
-                'contact_type_id' => $this->contact_type_id ?: '124',
+                'contact_type_id' => $this->contact_type_id ?: '1',
+                'email' => $this->email,
+                'gstin' => Str::upper($this->gstin),
                 'msme_no' => $this->msme_no ?: '-',
-                'msme_type_id' => $this->msme_type_id ?: '125',
+                'msme_type_id' => $this->msme_type_id ?: '1',
                 'opening_balance' => $this->opening_balance ?: 0,
                 'outstanding' => $this->outstanding ?: 0,
                 'effective_from' => $this->effective_from,
                 'active_id' => $this->active_id,
-                'gstin' => Str::upper($this->gstin),
-                'email' => $this->email,
                 'user_id' => Auth::id(),
                 'company_id' => session()->get('company_id'),
             ]);
