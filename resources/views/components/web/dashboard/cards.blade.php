@@ -142,7 +142,9 @@
                 <div class="text-[#E6533C]">{{$transactions['month_payable']}}</div>
             </div>
             <div>
-                <a href="{{route('payables')}}" class="text-[#E6533C] text-sm hover:bg-[#fcebe8] px-3 py-1 rounded-md font-semibold inline-flex items-center gap-x-2">
+                <a
+{{--                    href="{{route('payables')}}" --}}
+                    class="text-[#E6533C] text-sm hover:bg-[#fcebe8] px-3 py-1 rounded-md font-semibold inline-flex items-center gap-x-2">
 
                     <span>
                         View All
