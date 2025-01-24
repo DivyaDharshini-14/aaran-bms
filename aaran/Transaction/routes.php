@@ -16,9 +16,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('cashBooks/{id?}', Aaran\Transaction\Livewire\accountBook\Index::class)->name('cashBooks');
     Route::get('UPI/{id?}', Aaran\Transaction\Livewire\accountBook\Index::class)->name('UPI');
 
-    Route::get('reports/{id?}', App\Livewire\Reports\transaction\Bank::class)->name('reports');
-    Route::get('cashReports/{id?}', App\Livewire\Reports\transaction\Bank::class)->name('cashReports');
-    Route::get('report/print/{party}/{start_date?}/{end_date?}', App\Http\Controllers\transaction\BookReportController::class)->name('report.print');
+//    Route::get('reports/{id?}', App\Livewire\Reports\transaction\Bank::class)->name('reports');
+//    Route::get('cashReports/{id?}', App\Livewire\Reports\transaction\Bank::class)->name('cashReports');
+//    Route::get('report/print/{party}/{start_date?}/{end_date?}', App\Http\Controllers\transaction\BookReportController::class)->name('report.print');
 
 
 });
