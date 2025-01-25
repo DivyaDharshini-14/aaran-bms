@@ -10,7 +10,7 @@ class S404_ProductSeeder extends Seeder
     public static function run(): void
     {
         Product::create([
-            'vname' => 'T-SHIRT',
+            'vname' => '-',
             'producttype_id' => '92',
             'hsncode_id' => '130',
             'unit_id' => '97',

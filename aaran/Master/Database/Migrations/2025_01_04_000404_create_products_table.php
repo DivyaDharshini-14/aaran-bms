@@ -13,8 +13,8 @@ return new class extends Migration {
                 $table->id();
                 $table->string('vname')->unique();
                 $table->foreignId('producttype_id')->references('id')->on('commons');
-                $table->foreignId('hsncode_id')->references('id')->on('commons');
-                $table->foreignId('unit_id')->references('id')->on('commons');
+                $table->foreignId('hsncode_id')->references('id')->on('hsncodes');
+                $table->foreignId('unit_id')->references('id')->on('units');
                 $table->foreignId('gstpercent_id')->references('id')->on('commons');
                 $table->decimal('initial_quantity',12,2)->nullable();
                 $table->decimal('initial_price',12,2)->nullable();
