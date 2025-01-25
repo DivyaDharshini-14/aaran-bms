@@ -13,7 +13,7 @@ class S404_ProductSeeder extends Seeder
             'vname' => '-',
             'producttype_id' => '1',
             'hsncode_id' => '1',
-            'unit_id' => '97',
+            'unit_id' => '1',
             'gstpercent_id' => '100',
             'initial_quantity' => 0,
             'initial_price' => 0,
