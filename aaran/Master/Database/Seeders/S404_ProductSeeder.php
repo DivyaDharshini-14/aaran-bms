@@ -11,8 +11,8 @@ class S404_ProductSeeder extends Seeder
     {
         Product::create([
             'vname' => '-',
-            'producttype_id' => '92',
-            'hsncode_id' => '130',
+            'producttype_id' => '1',
+            'hsncode_id' => '1',
             'unit_id' => '97',
             'gstpercent_id' => '100',
             'initial_quantity' => 0,
