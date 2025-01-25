@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Reports\transaction;
+namespace Aaran\Reports\Livewire\transaction;
 
 use Aaran\Common\Models\Common;
 use Aaran\Master\Models\Contact;

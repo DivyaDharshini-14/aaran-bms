@@ -9,6 +9,7 @@ return [
     Aaran\Aadmin\Providers\AadminServiceProvider::class,
     Aaran\Common\Providers\CommonServiceProvider::class,
     Aaran\Master\Providers\MasterServiceProvider::class,
+    Aaran\Reports\Providers\ReportServiceProvider::class,
     Aaran\Entries\Providers\EntriesServiceProvider::class,
     Aaran\Web\Providers\WebServiceProvider::class,
 

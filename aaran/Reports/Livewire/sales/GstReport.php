@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Reports\sales;
+namespace Aaran\Reports\Livewire\sales;
 
 use Aaran\Entries\Models\Purchase;
 use Aaran\Entries\Models\Sale;

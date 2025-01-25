@@ -1,6 +1,6 @@
 <?php
 
-namespace Aaran\Reports\statement;
+namespace Aaran\Reports\Livewire\statement;
 
 use Aaran\Master\Models\Contact;
 use App\Livewire\Trait\CommonTraitNew;
