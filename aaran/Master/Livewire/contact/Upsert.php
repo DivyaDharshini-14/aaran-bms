@@ -821,8 +821,20 @@ class Upsert extends Component
         if ($this->vname != '') {
             if ($this->vid == "") {
                 $this->validate($this->rules());
+
+                $ledger = Ledger::create([
+                    'vname' => Str::upper($this->vname),
+                    'description' => $this->vname,
+                    'ledger_group_id' => '10',
+                    'opening' => '0',
+                    'opening_date' => '',
+                    'current' => '0',
+                    'active_id' => '1',
+                    'user_id' => Auth::id()
+                ]);
+
                 $obj = Contact::create([
-                    'ledger_id' => $this->ledger_id,
+                    'ledger_id' => $ledger->id,
                     'vname' => Str::upper($this->vname),
                     'mobile' => $this->mobile,
                     'whatsapp' => $this->whatsapp,
