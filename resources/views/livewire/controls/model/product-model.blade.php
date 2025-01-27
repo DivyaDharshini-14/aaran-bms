@@ -98,7 +98,7 @@
                                 </x-dropdown.option>
                             @empty
                                 <button
-                                    wire:click.prevent="gstPercentSave('{{$gstpercent_name}}')"
+                                    wire:click.prevent="gstPercentSave('{{$gstpercent_name}}', '{{$desc}}')"
                                     class="text-white bg-green-500 text-center w-full">
                                     create
                                 </button>

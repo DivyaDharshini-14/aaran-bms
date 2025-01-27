@@ -3,6 +3,9 @@
 namespace App\Livewire\Controls\Model;
 
 use Aaran\Common\Models\Common;
+use Aaran\Common\Models\GstPercent;
+use Aaran\Common\Models\Hsncode;
+use Aaran\Common\Models\Unit;
 use Aaran\Master\Models\Product;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -124,8 +127,7 @@ class ProductModel extends Component
 
     public function hsncodeSave($name)
     {
-        $obj = Common::create([
-            'label_id' => 6,
+        $obj = Hsncode::create([
             'vname' => $name,
             'active_id' => '1'
         ]);
@@ -136,8 +138,8 @@ class ProductModel extends Component
     public function getHsncodeList(): void
     {
         $this->hsncodeCollection = $this->hsncode_name ?
-            Common::search(trim($this->hsncode_name))->where('label_id', '=', '6')->get() :
-            Common::where('label_id', '=', '6')->get();
+            Hsncode::search(trim($this->hsncode_name))->get() :
+            Hsncode::all();
     }
 #endregion
 
@@ -266,8 +268,7 @@ class ProductModel extends Component
 
     public function unitSave($name)
     {
-        $obj = Common::create([
-            'label_id' => '16',
+        $obj = Unit::create([
             'vname' => $name,
             'active_id' => '1'
         ]);
@@ -278,8 +279,8 @@ class ProductModel extends Component
     public function getUnitList(): void
     {
         $this->unitCollection = $this->unit_name ?
-            Common::search(trim($this->unit_name))->where('label_id', '=', '16')->get() :
-            Common::where('label_id', '=', '16')->get();
+            Unit::search(trim($this->unit_name))->get() :
+            Unit::all();
     }
 #endregion
 
@@ -287,6 +288,8 @@ class ProductModel extends Component
 
     public $gstpercent_id = '';
     public $gstpercent_name = '';
+
+    public $desc = '';
     public Collection $gstpercentCollection;
     public $highlightGstPercent = 0;
     public $gstpercentTyped = false;
@@ -335,22 +338,22 @@ class ProductModel extends Component
         $this->gstpercentTyped = false;
     }
 
-    public function gstPercentSave($name)
+    public function gstPercentSave($name, $desc)
     {
-        $obj = Common::create([
-            'label_id' => '17',
+        $obj = GstPercent::create([
             'vname' => $name,
+            'desc' => $desc,
             'active_id' => '1'
         ]);
-        $v = ['name' => $name, 'id' => $obj->id];
+        $v = ['name' => $name, 'desc' => $obj->desc, 'id' => $obj->id];
         $this->refreshGstPercent($v);
     }
 
     public function getGstPercentList(): void
     {
         $this->gstpercentCollection = $this->gstpercent_name ?
-            Common::search(trim($this->gstpercent_name))->where('label_id', '=', '17')->get() :
-            Common::where('label_id', '=', '17')->get();
+            GstPercent::search(trim($this->gstpercent_name))->get() :
+            GstPercent::all();
     }
 
 #endregion

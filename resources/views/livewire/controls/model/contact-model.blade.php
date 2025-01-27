@@ -110,7 +110,7 @@
                                                                         {{ $states->vname }}
                                                                     </x-dropdown.option>
                                                                 @empty
-                                                                    <x-dropdown.new wire:click.prevent="stateSave('{{ $itemList[0]['state_name'] }}','{{0}}')" label="State" />
+                                                                    <x-dropdown.new wire:click.prevent="stateSave('{{ $itemList[0]['state_name'] }}','{{0}}', '{{$stateCode}}')" label="State" />
                                                                 @endforelse
                                                             @endif
                                                         </x-dropdown.select>

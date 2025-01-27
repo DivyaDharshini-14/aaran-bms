@@ -3,7 +3,11 @@
 namespace App\Livewire\Controls\Model;
 
 use Aaran\AccountMaster\Models\Ledger;
+use Aaran\Common\Models\City;
 use Aaran\Common\Models\Common;
+use Aaran\Common\Models\Country;
+use Aaran\Common\Models\Pincode;
+use Aaran\Common\Models\State;
 use Aaran\Master\Models\Contact;
 use Aaran\Master\Models\ContactDetail;
 use App\Livewire\Trait\CommonTraitNew;
@@ -223,8 +227,7 @@ class ContactModel extends Component
 
     public function citySave($name, $index)
     {
-        $obj = Common::create([
-            'label_id' => 2,
+        $obj = City::create([
             'vname' => $name,
             'active_id' => '1'
         ]);
@@ -235,8 +238,8 @@ class ContactModel extends Component
     public function getCityList(): void
     {
         $this->cityCollection = $this->itemList[$this->openTab]['city_name']
-            ? Common::search(trim($this->itemList[$this->openTab]['city_name']))->where('label_id', '=', '2')->get()
-            : Common::where('label_id', '=', '2')->Orwhere('label_id', '=', '1')->get();
+            ? City::search(trim($this->itemList[$this->openTab]['city_name']))->get()
+            : City::all();
     }
     #endregion
 
@@ -244,6 +247,7 @@ class ContactModel extends Component
     #[validate]
     public $state_name = '';
     public $state_id = '';
+    public $stateCode = '';
     public Collection $stateCollection;
     public $highlightState = 0;
     public $stateTyped = false;
@@ -285,8 +289,9 @@ class ContactModel extends Component
 
         $this->state_name = $obj['vname'] ?? '';;
         $this->state_id = $obj['id'] ?? '';;
-        Arr::set($this->itemList[$index], 'state_name', $obj['vname']);
-        Arr::set($this->itemList[$index], 'state_id', $obj['id']);
+//        Arr::set($this->itemList[$index], 'state_name', $obj['vname']);
+//        Arr::set($this->itemList[$index], 'state_id', $obj['id']);
+        $this->stateSave($this->state_name, $index, $this->stateCode);
     }
 
     #[On('refresh-state')]
@@ -299,22 +304,22 @@ class ContactModel extends Component
         $this->stateTyped = false;
     }
 
-    public function stateSave($name, $index): void
+    public function stateSave($name, $index, $stateCode): void
     {
-        $obj = Common::create([
-            'label_id' => 3,
+        $obj = State::create([
             'vname' => $name,
+            'state_code' => $stateCode,
             'active_id' => '1'
         ]);
-        $v = ['name' => $name, 'id' => $obj->id, 'index' => $index];
+        $v = ['name' => $name, 'state_code'=> $obj->state_code, 'id' => $obj->id, 'index' => $index];
         $this->refreshState($v);
     }
 
     public function getStateList(): void
     {
         $this->stateCollection = $this->itemList[$this->openTab]['state_name']
-            ? Common::search(trim($this->itemList[$this->openTab]['state_name']))->where('label_id', '=', '3')
-                ->get() : Common::where('label_id', '=', '3')->Orwhere('id', '=', '1')->get();
+            ? State::search(trim($this->itemList[$this->openTab]['state_name']))->get()
+            : State::all();
     }
     #endregion
 
@@ -379,8 +384,7 @@ class ContactModel extends Component
 
     public function pincodeSave($name, $index)
     {
-        $obj = Common::create([
-            'label_id' => 4,
+        $obj = Pincode::create([
             'vname' => $name,
             'active_id' => '1'
         ]);
@@ -391,8 +395,8 @@ class ContactModel extends Component
     public function getPincodeList(): void
     {
         $this->pincodeCollection = $this->itemList[$this->openTab]['pincode_name']
-            ? Common::search(trim($this->itemList[$this->openTab]['pincode_name']))->where('label_id', '=', '4')
-                ->get() : Common::where('label_id', '=', '4')->Orwhere('id', '=', '1')->get();
+            ? Pincode::search(trim($this->itemList[$this->openTab]['pincode_name']))->get()
+            : Pincode::all();
     }
 
     #endregion
@@ -458,8 +462,7 @@ class ContactModel extends Component
 
     public function countrySave($name, $index)
     {
-        $obj = Common::create([
-            'label_id' => 5,
+        $obj = Country::create([
             'vname' => $name,
             'active_id' => '1'
         ]);
@@ -470,8 +473,8 @@ class ContactModel extends Component
     public function getCountryList(): void
     {
         $this->countryCollection = $this->itemList[$this->openTab]['country_name']
-            ? Common::search(trim($this->itemList[$this->openTab]['country_name']))->where('label_id', '=', '5')
-                ->get() : Common::where('label_id', '=', '5')->Orwhere('id', '=', '1')->get();
+            ? Country::search(trim($this->itemList[$this->openTab]['country_name']))->get()
+            : Country::all();
     }
 
     #endregion

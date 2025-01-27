@@ -1,8 +1,8 @@
 <div>
     <button type="button" wire:click="create"
             class="text-gray-600 bg-white focus:outline-none hover:bg-gray-100 font-semibold sm:px-2 px-0.5 sm:py-2 py-1 rounded-lg text-xs">
-        {{$defaultCompany->company->vname ?:'Select Company' }}
-        &nbsp;-&nbsp;{{App\Enums\AcYear::tryFrom($defaultCompany->acyear)->getName()?:''}}
+{{--        {{$defaultCompany->company->vname ?:'Select Company' }}--}}
+{{--        &nbsp;-&nbsp;{{App\Enums\AcYear::tryFrom($defaultCompany->acyear)->getName()?:''}}--}}
     </button>
 
     <x-jet.modal wire:model.defer="showEditModal">
