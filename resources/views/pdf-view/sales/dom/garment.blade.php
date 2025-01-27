@@ -223,7 +223,7 @@
     <tr>
         <td style="width: 145px;height: 145px;">
             @if($cmp->get('logo')!='no_image')
-                <img src="{{ public_path('/storage/images/'.$cmp->get('logo'))}}" alt="company logo" width="130px"/>
+                <img src="{{ public_path('/storage/images/'.$cmp->get('logo'))}}" alt="." width="130px"/>
             @else
                 <img src="{{ public_path('images/sk-logo.jpeg') }}" alt="" width="130px">
             @endif
