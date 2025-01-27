@@ -1160,7 +1160,7 @@ class Upsert extends Component
         } else {
             $this->masterGstApi->authenticate();
             $obj = MasterGstToken::orderByDesc('id')->first();
-            $this->token = $obj->token;
+//            $this->token = $obj->token;
         }
     }
     #endregion

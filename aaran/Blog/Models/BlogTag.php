@@ -17,8 +17,10 @@ class BlogTag extends Model
 
     public static function blogTag($id)
     {
-        return BlogTag::find($id)->vname;
+        $blogTag = BlogTag::find($id);
+        return $blogTag ? $blogTag->vname : null; // Return null if not found
     }
+
 
 
     public static function search(string $searches)
