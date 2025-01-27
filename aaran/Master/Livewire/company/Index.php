@@ -821,7 +821,7 @@ class Index extends Component
                 Storage::disk('public')->delete(Storage::path('public/images/' . $this->old_logo));
             }
 
-            $image->storeAs('public/images', $filename);
+            $image->storeAs('public/images', $filename,'public');
 
             return $filename;
 
